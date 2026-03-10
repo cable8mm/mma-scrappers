@@ -11,7 +11,7 @@ class EventParser
     {
         $crawler = new Crawler($html);
 
-        $event = new Event;
+        $event = new Event();
 
         $event->name = $crawler->filter('h1')->text();
 
