@@ -1,36 +1,42 @@
 <?php
 
-namespace Tests\Unit\Scrapers;
+namespace Tests\Unit\Sources\BlackCombat\Scrapers;
 
 use Cable8mm\MmaScrapers\Contracts\HttpClientInterface;
-use Cable8mm\MmaScrapers\Parsers\BlackCombatParser;
-use Cable8mm\MmaScrapers\Scrapers\BlackCombatEventsScraper;
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Scrapers\EventsScraper;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(BlackCombatEventsScraper::class)]
-class BlackCombatEventsScraperTest extends TestCase
+#[CoversClass(EventsScraper::class)]
+class EventsScraperTest extends TestCase
 {
     #[Test]
     #[AllowMockObjectsWithoutExpectations]
-    public function test_parse_events()
+    public function test_scrape_event()
     {
-        $dir = __DIR__.'/../../Fixtures/BlackCombat/blackcombat_events.html';
+        $fixture = __DIR__.'/../../../../Fixtures/BlackCombat/blackcombat_events.html';
 
-        $html = file_get_contents($dir);
+        $html = file_get_contents($fixture);
+
+        if ($html === false) {
+            $this->fail('Fixture load failed');
+        }
 
         $http = $this->createMock(HttpClientInterface::class);
 
         $http->method('get')->willReturn($html);
 
-        $scraper = new BlackCombatEventsScraper(
+        $scraper = new EventsScraper(
             $http,
-            new BlackCombatParser()
+            new ParseEvents()
         );
 
-        $events = $scraper->scrape();
+        $events = $scraper->scrape('https://www.blackcombat-official.com/event.php?page=10');
+
+        $this->assertNotEmpty($events);
 
         $this->assertCount(16, $events);
 
