@@ -3,7 +3,6 @@
 namespace Cable8mm\MmaScrapers\Aggregators;
 
 use Cable8mm\MmaScrapers\DTO\FightDTO;
-use Cable8mm\MmaScrapers\DTO\FighterDTO;
 
 class FightAggregator
 {
@@ -12,86 +11,75 @@ class FightAggregator
     ) {
     }
 
-    /**
-     * @param FightDTO[] $fights
-     */
-    public function merge(array $fights): FightDTO
+    public function merge(FightDTO $a, FightDTO $b): FightDTO
     {
-        if (empty($fights)) {
-            throw new \InvalidArgumentException('Fights array cannot be empty');
+        if (!$this->isSameFight($a, $b)) {
+            throw new \InvalidArgumentException('Different fights');
         }
 
-        // 🔥 source priority 정렬
-        usort($fights, fn ($a, $b) => $b->source->value <=> $a->source->value);
+        $red = $this->fighterAggregator->merge($a->redFighter, $b->redFighter);
+        $blue = $this->fighterAggregator->merge($a->blueFighter, $b->blueFighter);
 
         return new FightDTO(
-            redFighter: $this->mergeFighters($fights, 'redFighter'),
-            blueFighter: $this->mergeFighters($fights, 'blueFighter'),
-            status: $this->pickEnum($fights, 'status'),
-            weightClass: $this->pickEnum($fights, 'weightClass'),
-            method: $this->pickEnum($fights, 'method'),
-            round: $this->pickInt($fights, 'round'),
-            time: $this->pickString($fights, 'time'),
-            winner: $this->pickWinner($fights),
-            source: $fights[0]->source
+            redFighter: $red,
+            blueFighter: $blue,
+            source: $this->pickSource($a, $b),
+            status: $this->pick($a->status, $b->status),
+            weightClass: $this->pick($a->weightClass, $b->weightClass),
+            method: $this->pick($a->method, $b->method),
+            round: $this->pick($a->round, $b->round),
+            time: $this->pick($a->time, $b->time),
+            winner: $this->resolveWinner($a, $b)
         );
     }
 
     /**
-     * FighterDTO merge (핵심)
+     * 같은 경기인지 판단
      */
-    private function mergeFighters(array $fights, string $field): FighterDTO
+    public function isSameFight(FightDTO $a, FightDTO $b): bool
     {
-        $fighters = array_map(fn ($fight) => $fight->$field, $fights);
+        return $this->isSameFighterPair($a, $b);
+    }
 
-        return $this->fighterAggregator->merge($fighters);
+    private function isSameFighterPair(FightDTO $a, FightDTO $b): bool
+    {
+        return (
+            $this->fighterAggregator->isSameFighter($a->redFighter, $b->redFighter)
+            && $this->fighterAggregator->isSameFighter($a->blueFighter, $b->blueFighter)
+        )
+        ||
+        (
+            $this->fighterAggregator->isSameFighter($a->redFighter, $b->blueFighter)
+            && $this->fighterAggregator->isSameFighter($a->blueFighter, $b->redFighter)
+        );
     }
 
     /**
-     * winner 결정 로직 (🔥 중요)
+     * winner 결정 (핵심)
      */
-    private function pickWinner(array $fights): ?FighterDTO
+    private function resolveWinner(FightDTO $a, FightDTO $b)
     {
-        // 1️⃣ source priority 순으로 확인
-        foreach ($fights as $fight) {
-            if ($fight->winner !== null) {
-                return $fight->winner;
-            }
-        }
-
-        return null;
+        return $b->winner ?? $a->winner;
     }
 
-    private function pickString(array $fights, string $field): ?string
+    /**
+     * source 선택
+     */
+    private function pickSource(FightDTO $a, FightDTO $b)
     {
-        foreach ($fights as $fight) {
-            if (!empty($fight->$field)) {
-                return $fight->$field;
-            }
+        // Sherdog 우선
+        if ($b->source->value === 'sherdog') {
+            return $b->source;
         }
 
-        return null;
+        return $a->source;
     }
 
-    private function pickInt(array $fights, string $field): ?int
+    /**
+     * 값 선택
+     */
+    private function pick(mixed $a, mixed $b): mixed
     {
-        foreach ($fights as $fight) {
-            if ($fight->$field !== null) {
-                return $fight->$field;
-            }
-        }
-
-        return null;
-    }
-
-    private function pickEnum(array $fights, string $field)
-    {
-        foreach ($fights as $fight) {
-            if ($fight->$field !== null) {
-                return $fight->$field;
-            }
-        }
-
-        return null;
+        return $b ?? $a;
     }
 }

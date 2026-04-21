@@ -15,18 +15,47 @@ use PHPUnit\Framework\Attributes\Test;
 class FightAggregatorTest extends TestCase
 {
     #[Test]
-    public function test_merge_fights()
+    public function test_merge_fight()
     {
-        $fighterA = new FighterDTO('A');
-        $fighterB = new FighterDTO('B');
+        $fighterAgg = new FighterAggregator();
+        $agg = new FightAggregator($fighterAgg);
 
-        $fight1 = new FightDTO($fighterA, $fighterB, round: 1, source: Source::SHERDOG);
-        $fight2 = new FightDTO($fighterA, $fighterB, round: 3, source: Source::OFFICIAL);
+        $a = new FightDTO(
+            redFighter: new FighterDTO('김명환', sherdogId: 1),
+            blueFighter: new FighterDTO('이상훈', sherdogId: 2),
+            source: Source::OFFICIAL
+        );
 
-        $agg = new FightAggregator(new FighterAggregator());
+        $b = new FightDTO(
+            redFighter: new FighterDTO('Myung Hwan Kim', sherdogId: 1),
+            blueFighter: new FighterDTO('Sang Hoon Lee', sherdogId: 2),
+            source: Source::SHERDOG,
+            round: 2
+        );
 
-        $result = $agg->merge([$fight2, $fight1]);
+        $merged = $agg->merge($a, $b);
 
-        $this->assertEquals(1, $result->round); // Sherdog 우선
+        $this->assertEquals(2, $merged->round);
+    }
+
+    #[Test]
+    public function test_reverse_fighter_order()
+    {
+        $fighterAgg = new FighterAggregator();
+        $agg = new FightAggregator($fighterAgg);
+
+        $a = new FightDTO(
+            redFighter: new FighterDTO('A', sherdogId: 1),
+            blueFighter: new FighterDTO('B', sherdogId: 2),
+            source: Source::OFFICIAL
+        );
+
+        $b = new FightDTO(
+            redFighter: new FighterDTO('B', sherdogId: 2),
+            blueFighter: new FighterDTO('A', sherdogId: 1),
+            source: Source::SHERDOG
+        );
+
+        $this->assertTrue($agg->isSameFight($a, $b));
     }
 }
