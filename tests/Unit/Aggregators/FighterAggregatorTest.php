@@ -30,8 +30,8 @@ class FighterAggregatorTest extends TestCase
     {
         $agg = new FighterAggregator();
 
-        $a = new FighterDTO(name: '정찬성');
-        $b = new FighterDTO(name: 'Jung Chan Sung');
+        $a = new FighterDTO(name: '정찬성', sherdogId: 123);
+        $b = new FighterDTO(name: 'Jung Chan Sung', sherdogId: 123);
 
         $this->assertTrue($agg->isSameFighter($a, $b));
     }
