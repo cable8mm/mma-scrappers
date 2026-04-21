@@ -2,10 +2,10 @@
 
 namespace Cable8mm\MmaScrapers\DTO;
 
-use Cable8mm\MmaScrapers\Enum\FightMethod;
-use Cable8mm\MmaScrapers\Enum\FightStatus;
-use Cable8mm\MmaScrapers\Enum\Source;
-use Cable8mm\MmaScrapers\Enum\WeightClass;
+use Cable8mm\MmaScrapers\Enums\FightMethod;
+use Cable8mm\MmaScrapers\Enums\FightStatus;
+use Cable8mm\MmaScrapers\Enums\Source;
+use Cable8mm\MmaScrapers\Enums\WeightClass;
 
 /**
  * Data Transfer Object representing a fight.
