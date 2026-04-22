@@ -1,9 +1,11 @@
 <?php
 
-namespace Tests\Unit\Deduplicators;
+namespace Tests\Unit\Services;
 
+use Cable8mm\MmaScrapers\Aggregators\FightAggregator;
+use Cable8mm\MmaScrapers\Aggregators\FighterAggregator;
 use PHPUnit\Framework\TestCase;
-use Cable8mm\MmaScrapers\Deduplicators\FightDeduplicator;
+use Cable8mm\MmaScrapers\Services\FightDeduplicator;
 use Cable8mm\MmaScrapers\DTO\FightDTO;
 use Cable8mm\MmaScrapers\DTO\FighterDTO;
 use Cable8mm\MmaScrapers\Enums\Source;
@@ -24,7 +26,10 @@ class FightDeduplicatorTest extends TestCase
         $fight1 = new FightDTO($fighterA, $fighterB, fightDate: $date, source: Source::SHERDOG);
         $fight2 = new FightDTO($fighterA, $fighterB, fightDate: $date, source: Source::TAPOLOGY);
 
-        $deduplicator = new FightDeduplicator();
+        $fighterAgg = new FighterAggregator();
+        $fightAgg = new FightAggregator($fighterAgg);
+
+        $deduplicator = new FightDeduplicator($fightAgg);
 
         $groups = $deduplicator->group([$fight1, $fight2]);
 
