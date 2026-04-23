@@ -1,0 +1,2614 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>블랙컴뱃</title>
+
+<link rel="stylesheet" href="https://www.blackcombat-official.com/theme/blackcombat/css/default.css?ver=2604051">
+<link rel="stylesheet" href="https://www.blackcombat-official.com/js/font-awesome/css/font-awesome.min.css?ver=2604051">
+<link rel="stylesheet" href="/theme/blackcombat/css/mobile_event.css?v=20220918">
+<!--[if lte IE 8]>
+<script src="https://www.blackcombat-official.com/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://www.blackcombat-official.com";
+var g5_bbs_url   = "https://www.blackcombat-official.com/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+var g5_theme_shop_url = "https://www.blackcombat-official.com/theme/blackcombat/shop";
+var g5_shop_url = "https://www.blackcombat-official.com/shop";
+</script>
+
+<meta name="type" content="website" />
+<meta name="title" content="블랙컴뱃 - BLACKCOMBAT" />
+<meta name="description" content="Who is the king? The Revolution of MMA, Black Combat" />
+<meta name="keywords" content="블랙컴뱃, MMA, 이종격투기, 종합격투기, 주짓수, 격투대회, 체육관, MMA체육관" />
+<meta name="image" content="https://www.blackcombat-official.com/theme/blackcombat/img/logo.png" />
+<meta name="url" content="https://www.blackcombat-official.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="블랙컴뱃 - BLACKCOMBAT" />
+<meta property="og:description" content="Who is the king? The Revolution of MMA, Black Combat" />
+<meta property="og:keywords" content="블랙컴뱃, MMA, 이종격투기, 종합격투기, 주짓수, 격투대회, 체육관, MMA체육관" />
+<meta property="og:image" content="https://www.blackcombat-official.com/theme/blackcombat/img/logo.png" />
+<meta property="og:url" content="https://www.blackcombat-official.com/" />
+<link rel="canonical" href="https://www.blackcombat-official.com/">
+<meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/img/blackcombat_favicon.png?v=20221017" />
+<link href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://www.blackcombat-official.com/js/jquery.menu.js?ver=2511112"></script>
+<script src="https://www.blackcombat-official.com/js/common.js?ver=2511112"></script>
+<script src="https://www.blackcombat-official.com/js/wrest.js?ver=2511112"></script>
+<script src="https://www.blackcombat-official.com/js/placeholders.min.js?ver=2511112"></script>
+</head>
+
+<body>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TNKR3YS1FL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TNKR3YS1FL');
+</script>
+
+<style>
+    html, body {
+        -webkit-text-size-adjust: none; /* 모바일 브라우저 자동 확대 방지 */
+        text-size-adjust: none;
+    }
+</style><style>
+    .live_mark{
+        position: absolute;
+        top: 13px;
+        padding: 2px 5px;
+        background-color: #000000;
+        color: #ffba3c;
+        font-size: 0.8rem;
+        border-radius: 4px;
+        line-height: 1rem;
+        width: 58px;
+        text-align: center;
+    }
+
+    .lang-dropdown {
+        position: relative;
+        display: inline-block;
+        min-width: 160px;
+        font-size: 14px;
+        z-index: 1001;
+    }
+
+    .lang_li{
+        margin: 9px 0px !important;
+    }
+
+    .lang-current {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+        height: 28px;
+        padding: 0 12px;
+        background: #212020;
+        color: #919191;
+        border: 1px solid #919191;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .lang-current:hover {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .lang-current-left {
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        margin-top: unset !important;
+        font-size: unset !important;
+    }
+
+    .lang-current-left span:last-child {
+        white-space: nowrap;
+    }
+
+    .lang-current-left span{
+        display: inline-block !important;
+        margin-top: unset !important;
+        font-size: unset !important;
+    }
+
+    .lang-list .fi{
+        font-size: 17px !important;
+        min-width: 17px;
+        max-width: 17px;
+    }
+
+    .lang-arrow {
+        font-size: 12px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+    }
+
+    .lang-dropdown.open .lang-arrow {
+        transform: rotate(180deg);
+    }
+
+    .lang-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 4px 0 0 0;
+        padding: 4px 0;
+        list-style: none;
+        background: #212020;
+        border: 1px solid #919191;
+        box-sizing: border-box;
+    }
+
+    .lang-dropdown.open .lang-list {
+        display: block;
+    }
+
+    .lang-list li {
+        margin: 0 !important;
+        padding: 0;
+        float: unset !important;
+        font-size: unset !important;
+        line-height: unset !important;
+        border-right : unset !important;
+    }
+
+    .lang-list a {
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        color: #919191;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .lang-list a:hover {
+        background: #2f2e2e;
+        color: #fff;
+    }
+
+    .lang-list a.active {
+        color: #fff;
+        font-weight: 600;
+    }
+</style>
+<!-- 상단 시작 { -->
+<div id="tnb" style="background:#212020;">
+    <div class="inner">
+        <ul id="hd_qnb">
+            <li>
+                <input type="text" class="search-value-input" style="background-color: #212020;color: #919191;border: 1px solid #919191;padding: 2px;width: 100px;margin-top: -6px;" />
+                <button onclick="searchPlayer(this)" style="margin-top: -6px; height: 27px; width: 40px; background-color: #111111; color: gray;">검색</button>
+            </li>
+                        <li><a href="https://www.blackcombat-official.com/shop/orderinquiry.php">비회원 주문조회</a></li>
+            <li><a href="https://www.blackcombat-official.com/bbs/register.php">회원가입</a></li>
+            <li><a href="https://www.blackcombat-official.com/bbs/login.php">로그인</a></li>
+                        
+            <li class="lang_li">
+                <div class="lang-dropdown" id="langDropdown">
+                    <button type="button" class="lang-current" id="langToggle" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-current-left">
+                            <span class="fi fi-kr"></span>
+                            <span>한국어</span>
+                        </span>
+                        <span class="lang-arrow">▼</span>
+                    </button>
+
+                    <ul class="lang-list" id="langList">
+                                                        <li>
+                                    <a href="#"
+                                    class="active"
+                                    data-lang="ko">
+                                        <span class="fi fi-kr"></span>
+                                        <span>한국어</span>
+                                    </a>
+                                </li>
+                                                        <li>
+                                    <a href="#"
+                                    class=""
+                                    data-lang="en">
+                                        <span class="fi fi-us"></span>
+                                        <span>English</span>
+                                    </a>
+                                </li>
+                                                        <li>
+                                    <a href="#"
+                                    class=""
+                                    data-lang="ja">
+                                        <span class="fi fi-jp"></span>
+                                        <span>日本語</span>
+                                    </a>
+                                </li>
+                                                        <li>
+                                    <a href="#"
+                                    class=""
+                                    data-lang="zh_cn">
+                                        <span class="fi fi-cn"></span>
+                                        <span>简体中文</span>
+                                    </a>
+                                </li>
+                                                        <li>
+                                    <a href="#"
+                                    class=""
+                                    data-lang="pt_br">
+                                        <span class="fi fi-br"></span>
+                                        <span>Português (Brasil)</span>
+                                    </a>
+                                </li>
+                                                        <li>
+                                    <a href="#"
+                                    class=""
+                                    data-lang="ru">
+                                        <span class="fi fi-ru"></span>
+                                        <span>Русский</span>
+                                    </a>
+                                </li>
+                                            </ul>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    var ajax_url = window.location.origin + "/theme/blackcombat/shop";
+    function searchPlayer(){
+        let keyword = $(".search-value-input").val();
+        if(keyword === null || keyword === undefined || keyword === ""){
+            alert("검색어를 입력하세요.");
+            return;
+        }else if(keyword.length <= 1){
+            alert("검색어를 두 글자 이상 입력하세요.");
+            return;
+        }
+
+        $.ajax({
+            url: ajax_url + "/ajax.action.php",
+            type: "POST",
+            data: {"action":"get_player_info", "search_keyword":keyword},
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data, textStatus) {
+                gtag('event', 'player_search', {
+                    search_term: keyword
+                });
+                if(data.resultArray.length === 0){
+                    alert("검색된 선수가 없습니다.");
+                }else if(data.resultArray.length > 1){
+                    let message = "검색된 선수가 두 명 이상입니다.\n -";
+                    message += data.resultArray.map(item => item.fighter_name + " (" + item.fighter_ringname + ")").join("\n -");
+                    alert(message);
+                }else{
+                    location.href="https://www.blackcombat-official.com/fighter/"+data.resultArray[0].fighter_seq;
+                }
+            },
+            error : function(request, status, error){
+                console.log(error);
+                alert("false ajax :"+request.responseText);
+            }
+        });
+    }
+
+    $('.search-value-input').keypress(function(event) {
+        if (event.which === 13 || event.key === 'Enter') {
+            searchPlayer()
+        }
+    });
+</script>
+
+<div id="hd">
+    <h1 id="hd_h1">블랙컴뱃</h1>
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+
+    
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+<span class="sound_only">팝업레이어 알림이 없습니다.</span></div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 -->
+    <div id="hd_wrapper">
+
+        <div id="logo">
+            <a href="https://www.blackcombat-official.com"><img src="https://www.blackcombat-official.com/img/logo.png" alt="블랙컴뱃"></a>
+        </div>
+
+        <div class="menus">
+            <div class="menu_items">
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/company.php" class="menu_item_anchor">COMPANY</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
+                <div class="menu_item" style="position:relative">
+                                                                        <!-- <a href="https://www.blackcombat-official.com/shop/1733239478" class="menu_item_anchor ticket_link">TICKET</a> -->
+                                                    <a href="#" class="menu_item_anchor" onclick="location.href='https://hegemonyblack.com/goods/goods_view.php?goodsNo=1000000152'">TICKET</a>    
+                            <div class="live_mark">LIVE🔥</div>
+                            <!-- <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a> -->
+                                                            </div>
+                <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/event.php?page=10" class="menu_item_anchor">EVENT</a></div>
+                
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/blackcup.php" class="menu_item_anchor">BLACK CUP</a></div>    
+                
+                <!-- <div class="menu_item"><a href="https://www.blackcombat-official.com/video" class="menu_item_anchor">VIDEO</a></div> -->
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
+                <!-- <div class="menu_item"><a href="https://www.blackcombat-official.com/cl.php" class="menu_item_anchor">C.L</a></div> -->
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/community" class="menu_item_anchor">COMMUNITY</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/gym.php" class="menu_item_anchor">GYM</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/rules.php" class="menu_item_anchor">RULES</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/doping.php" class="menu_item_anchor">DOPING</a></div>
+                <div class="menu_item"><a href="https://www.blackcombat-official.com/awards.php" class="menu_item_anchor">GLORIA AWARDS</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hd_bg left"></div>
+    <div class="hd_bg right"></div>
+</div>
+<!-- } 상단 끝 -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var lang = 'ko';
+
+        if (lang === 'ru') {
+            var items = document.querySelectorAll('.menu_item_anchor');
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.fontSize = '15px';
+            }
+        }
+    });
+</script>
+
+<hr>
+
+<script>
+    (function () {
+        var dropdown = document.getElementById('langDropdown');
+        var toggle = document.getElementById('langToggle');
+        var list = document.getElementById('langList');
+        var links = list.querySelectorAll('a[data-lang]');
+
+        function openDropdown() {
+            dropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeDropdown() {
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        function toggleDropdown() {
+            if (dropdown.classList.contains('open')) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        }
+
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggleDropdown();
+        });
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function (e) {
+                e.preventDefault();
+
+                var lang = this.getAttribute('data-lang');
+                var url = new URL(window.location.href);
+
+                url.searchParams.set('lang', lang);
+                window.location.href = url.toString();
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+    })();
+</script>
+<!-- 콘텐츠 시작 { -->
+<div id="wrapper">
+    <div id="container_wr">
+   
+    <div id="container">
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<style>
+    .fighter_img {
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    .fighter_img:hover{
+        transform: scale(1.1);
+    }
+
+    a#openModal{
+        cursor: pointer;
+    }
+
+    .modal-background {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index:10;
+    }
+
+    .modal {
+        background: white;
+        width: 800px;
+        height: 400px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(100px);
+        transition: transform 0.3s ease-out;
+        position: relative;
+    }
+
+    .modal.show {
+        transform: translateY(0);
+    }
+
+    .modal.hide {
+        transform: translateY(100px);
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    table{
+        width:100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border:2px solid black;
+        background-color:#dedede;
+    }
+
+    tr.scoreDetail{
+        /* background-color:#dedede; */
+    }
+
+    td{
+        border: 1px solid #999999;
+        text-align:center;
+        padding:unset;
+        font-size:0.8rem;
+        line-height:1.7rem;
+    }
+
+
+    td>div{
+        background-color:#aaaaaa;
+    }
+
+    #modalBackground .large-txt{
+        font-size:0.9rem;
+        font-weight:bold;
+    }
+
+    span.division-info{
+        display: inline-block;
+        padding: 5px 5px;
+        margin: 0px 2px;
+        background-color: #999999;
+        color:white;
+        font-weight:normal;
+        font-size: 9px;
+    }
+
+    .vote-rate-bar{
+        flex:20 0 0; 
+        display : flex; 
+        justify-content : space-between; 
+        align-items : center; 
+        
+        font-size: 0.8rem;
+        margin:10px 10px;
+        font-style:italic;
+    }
+
+    .vote-item{
+        height:23px;
+    }
+
+    .vote-item.vote-right{
+        background-color: cornflowerblue;
+    }
+
+    .vote-item.vote-left{
+        background-color: lightcoral;
+    }
+
+    .vote-desc{
+        flex:0.5 0 0; 
+        display : flex; 
+        justify-content: space-between;
+        padding: 0 80px;
+        align-items : center; 
+        position: relative;
+        top: -32px;
+    }
+
+    .arrow-btn{
+        flex: 1 0 0;
+        display:flex;
+        align-items : center; 
+        z-index:2;
+    }
+    .arrow-btn.arrow-right{
+        justify-content : left; 
+    }
+    .arrow-btn.arrow-left{
+        justify-content : right; 
+    }
+
+    span.fi {
+        font-size: 1.4rem;
+        top:7px;
+    }
+
+
+    /* 응원메세지 */
+    .cheer-mini{
+        margin:10px 10px 0;
+        padding:10px;
+        background: transparent;
+        border-radius:6px;
+        box-shadow:none;
+    }
+    .cheer-mini-lines{ 
+        /* min-height:42px; */
+        font-size:0.78rem;   /* 기존 0.85rem -> ↓ */
+        line-height:1.15rem;
+        color:#333;
+        font-weight:normal;
+     }
+    .cheer-line{ 
+        white-space: normal;      /* ✅ 줄바꿈 허용 */
+        overflow: visible;        /* ✅ 잘라내지 않음 */
+        text-overflow: unset;     /* ✅ 말줄임 제거 */
+        word-break: break-word;   /* ✅ 긴 단어도 줄바꿈 */
+        overflow-wrap: anywhere;
+     }
+    .cheer-line b{ margin-right:6px; }
+    .cheer-empty{ color:#999; font-style:italic; }
+
+    .cheer-mini-actions{ display:flex; gap:6px; margin-top:8px; }
+    .cheer-input{ 
+        flex:1 0 0;
+        border:1px solid #ccc;
+        border-radius:6px;
+        padding:7px 8px;     /* 기존 8px -> ↓ */
+        font-size:0.85rem;   /* 기존 0.9rem -> ↓ */
+        background:#fff;     /* 입력창은 가독성 위해 유지 추천 */
+     }
+    .cheer-btn{ 
+        border:0;
+        border-radius:6px;
+        padding:7px 9px;     /* 기존 8px 10px -> ↓ */
+        background:#333;
+        color:#fff;
+        font-size:0.8rem;    /* 기존 0.85rem -> ↓ */
+     }
+    .cheer-btn.cheer-open{ background:#ffba3c; color:#111; font-weight:bold; }
+    
+    #cheerModalList{
+        background: transparent !important;
+        font-size:0.9rem; /* 전체보기 내용도 살짝 다운 */
+    }
+
+    #cheerModalInput{
+        font-size:0.9rem; /* 입력도 한치수 다운 */
+        padding:9px;
+    }
+
+    .cheer-del-btn{
+        border:0;
+        border-radius:6px;
+        padding:6px 8px;
+        font-size:0.8rem;
+        background:#c0392b;
+        color:#fff;
+    }
+
+    .cheer-time{
+        margin-left:6px;
+        font-size:0.75em;
+        color:#777;
+        white-space:nowrap;
+    }
+
+    .cheer-msg{
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+</style>
+    <div class="sub_visual">
+        <div class="sub_visual_items">
+            <div class="sub_visual_caption">
+                <div class="category" style="font-family:unset;">블랙컵 8강: 브라질 vs 일본</div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="key_visual" style="padding-bottom: 30px;">
+        <div class="swiper key_visual_wrap">
+            <div class="swiper-wrapper key_visual_items" style="height:500px;">
+                  
+                            <div class="swiper-slide key_visual_item">
+                                <img style="width:100%; height:100%; object-fit: contain;" src="https://www.blackcombat-official.com/theme/blackcombat/img/event/287/1.jpg" />
+                            </div>
+                            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="sub_content">
+        <div class="sub_container">
+            <div class="event_detail_page">
+                                                
+                <div class="fightcard" style="border-top:2px solid #bbbbbb; border-bottom:2px solid #bbbbbb; padding:20px 0px;">
+                    <div style="font-family: 'Teko', sans-serif, cursive;font-size: 3rem;text-align: center; padding-bottom:20px;">FIGHT CARD</div>
+                        <div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/58305359">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/58305359/58305359_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-eg"></span> 
+                                                                                        <span class="division-info">라이트급 #16</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">라이트급 #14</span>
+                                                                                                                                    <span class="fi fi-kr"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Youssef Barakat</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">정영제</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">파라오<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">9W 2L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">워리어<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">6W 5L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/WM_oaoj2B9Q?si=0hfPIam6DwOxYRaQ">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Youssef Barakat&quot;,&quot;정영제&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        LIGHTWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:76%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:24%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">76% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 24%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="466" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-466">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-466"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(466)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(466, 'Youssef Barakat', '정영제')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/32699714">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/32699714/32699714_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                         <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div>                                     </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/94299435">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/94299435/94299435_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">밴텀급 #10</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">밴텀급 #9</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Felipe Gheno</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Mukai Rukiya</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Iron Horse<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">11W 5L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Rookie<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">6W 2L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/9-qE6CWF3XE?si=jsdPG9dmAWqXkuTD">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(313,&quot;Felipe Gheno&quot;,&quot;Mukai Rukiya&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        BANTAMWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:43%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:57%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">43% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 57%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="458" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-458">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-458"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(458)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(458, 'Felipe Gheno', 'Mukai Rukiya')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/12138256">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/12138256/12138256_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                         <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div>                                     </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/71953510">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/71953510/71953510_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">미들급 #6</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">미들급 #3</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Marcos Vinicius</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Sato Ryutaro</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Phoenix<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">6W 2L 1D</span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Momo<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">10W 2L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/qkS1_C-c-Qk?si=yaK8wadfpSz6muhk">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(312,&quot;Marcos Vinicius&quot;,&quot;Sato Ryutaro&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        MIDDLEWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:45%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:55%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">45% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 55%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="462" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-462">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-462"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(462)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(462, 'Marcos Vinicius', 'Sato Ryutaro')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/53287506">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/53287506/53287506_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                         <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div>                                     </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/50151784">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/50151784/50151784_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">라이트급 #17</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">라이트급 #15</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Deberson Batista</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Yamamoto Takuya</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Big Prince<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">14W 6L 2D</span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Grizzly<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">11W 3L 1D</span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/2sYHSqo85qw?si=hukkjlAr5wFED9Pd">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Deberson Batista&quot;,&quot;Yamamoto Takuya&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        LIGHTWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:66%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:34%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">66% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 34%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="460" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-460">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-460"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(460)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(460, 'Deberson Batista', 'Yamamoto Takuya')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/14307481">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/14307481/14307481_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                         <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div>                                     </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/15303256">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/15303256/15303256_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                         <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold; margin-top: 6px;">Win</div>                                         </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">헤비급 #4</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">헤비급 #8</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Richard Jacobi</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Oban Takaaki</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Boss Baby<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">10W 2L 1D</span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Hiroshima<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">11W 10L 1D</span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/0A8pttGqsPI?si=3dnoFhf65ktQxbQj">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Richard Jacobi&quot;,&quot;Oban Takaaki&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        HEAVYWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:84%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:16%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">84% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 16%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="463" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-463">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-463"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(463)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(463, 'Richard Jacobi', 'Oban Takaaki')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/80347858">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/80347858/80347858_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                                                            </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/51523231">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/51523231/51523231_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">웰터급 #7</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">웰터급 #16</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Lucas Marques</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Tanaka Yu</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Viking<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">19W 6L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Oni<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">6W 6L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/Yz2ZY6NToQw?si=lNez8BxRE0H6fI1t">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Lucas Marques&quot;,&quot;Tanaka Yu&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        WELTERWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:75%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:25%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">75% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 25%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="461" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-461">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-461"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(461)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(461, 'Lucas Marques', 'Tanaka Yu')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/43145922">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/43145922/43145922_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                                                            </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/77842475">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/77842475/77842475_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">페더급 #13</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">페더급 #16</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Victor Hugo</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Toma Mitsuhiro</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Striker<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">25W 7L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Thor<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">15W 12L 2D</span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/EVTEzc0w3xw?si=k21AcTDJiBY1roCQ">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Victor Hugo&quot;,&quot;Toma Mitsuhiro&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        FEATHERWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:74%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:26%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">74% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 26%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="459" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-459">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-459"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(459)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(459, 'Victor Hugo', 'Toma Mitsuhiro')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/73185034">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/73185034/73185034_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                                                            </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/30038332">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/30038332/30038332_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                         <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold; margin-top: 6px;">Win</div>                                         </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-br"></span> 
+                                                                                        <span class="division-info">플라이급 #14</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">플라이급 #15</span>
+                                                                                                                                    <span class="fi fi-jp"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Tiago Xavier</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Yamasaki Sora </span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">Pitbull<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">17W 12L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">Ninja<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">7W 2L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/eCqCA7DOlno?si=5X8m794N3HWaKOUJ">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(311,&quot;Tiago Xavier&quot;,&quot;Yamasaki Sora &quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        FLYWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:45%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:55%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">45% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 55%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="457" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-457">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-457"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(457)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(457, 'Tiago Xavier', 'Yamasaki Sora ')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/69534617">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/69534617/69534617_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                                                            </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/98413196">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/98413196/98413196_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                                                                </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-kz"></span> 
+                                                                                        <span class="division-info">밴텀급 #12</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">밴텀급 #11</span>
+                                                                                                                                    <span class="fi fi-br"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">Ruslan Sariyev</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">Marcelo Guarilha</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">스컬<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">17W 5L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">구아라<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">25W 11L 1D</span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/CJLhqn6hf34?si=29X4e64OWyaGgR_M">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;Ruslan Sariyev&quot;,&quot;Marcelo Guarilha&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        BANTAMWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:59%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:41%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">59% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 41%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="465" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-465">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-465"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(465)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(465, 'Ruslan Sariyev', 'Marcelo Guarilha')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/75006829">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/75006829/75006829_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                         <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div>                                     </a>
+                                </div>
+                            </div>
+
+
+                            <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
+                                <div style="flex:1 0 0;">
+                                    <a href="/fighter/38008098">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/38008098/38008098_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
+                                                                                         <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold; margin-top: 6px;">Win</div>                                         </img>
+                                        
+                                    </a>
+                                </div>
+                                <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-kr"></span> 
+                                                                                        <span class="division-info">헤비급 #7</span>
+                                                                                                                                </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                                                                        <span class="division-info">헤비급 #13</span>
+                                                                                                                                    <span class="fi fi-kr"></span> 
+                                        </div>  
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 10px; margin-top:10px;">
+                                        <div style="flex:2 0 0; text-align:left;">
+                                            <span style="white-space: word-break: auto-phrase;">이종구</span>
+                                        </div>
+                                        <div style="flex:1 0 0; text-align:center;">VS</div>
+                                        <div style="flex:2 0 0; text-align:right;">
+                                            <span style="float:right; word-break: auto-phrase;">김도훈</span>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 10px; ">
+                                        <div style="flex:1 0 0; text-align:left;">알밤<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">2W 0L </span></div>  
+                                        <div style="flex:1 0 0; text-align:center;">RING NAME</div>
+                                        <div style="flex:1 0 0; text-align:right;">흑곰<br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem">0W 1L </span></div>  
+                                    </div>
+                                    <div style="flex:1 0 0; text-align:center">
+                                        <div style="display : inline-block; margin-right:5px;">
+                                            FULL FIGHT
+                                                                                    <a href="https://youtu.be/3kGdlRjp0mo?si=WehycJ3mZMjFMSw4">
+                                            
+                                                <img style="width:25px; margin-bottom: 3px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/youtube_icon.png" />
+                                            </a> 
+                                        </div>
+                                        |
+                                        <div style="display : inline-block; margin-left:5px;" >
+                                        <!-- <div style="display : inline-block; margin-left:5px;"> -->
+                                            SCORE CARD
+                                            
+                                            <a id="openModal" href="javascript:openScoreCard(null,&quot;이종구&quot;,&quot;김도훈&quot;)">
+                                                <img style="width:25px; margin-bottom: 4px;" src="https://www.blackcombat-official.com/theme/blackcombat/img/doc_icon.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; ">
+                                        -100.5KG CATCHWEIGHT BOUT                                    </div>
+                                    
+                                                                                <div style="flex: 0.5 0 0; display:flex;">
+                                                                                            <a class="arrow-btn arrow-right"></a>
+                                                                                        
+                                            
+                                            <div class="vote-rate-bar" >
+                                                <div class="vote-item vote-left" style="width:81%; border: 1px solid gray;""></div>
+                                                <div class="vote-item vote-right" style="width:19%; border: 1px solid gray;""></div>
+                                            </div>
+                                                                                            <a class="arrow-btn arrow-left"></a>
+                                                                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style="">81% </span>
+                                            <span style="">승부예측</span>
+                                            <span style=""> 19%</span>
+                                        </div>
+
+                                                                                    <div class="cheer-mini" data-fight-seq="464" data-event-seq="287">
+                                                <div class="cheer-mini-lines" id="cheer-mini-464">
+                                                    <div class="cheer-empty">응원 메세지를 남겨주세요!</div>
+                                                </div>
+
+                                                <div class="cheer-mini-actions">
+                                                    <input type="text"
+                                                    class="cheer-input"
+                                                    id="cheer-input-464"
+                                                    maxlength="50"
+                                                    placeholder="응원 한마디" />
+
+                                                    <button type="button" class="cheer-btn" onclick="cheerWrite(464)">등록</button>
+                                                    <button type="button" class="cheer-btn cheer-open" onclick="openCheerModal(464, '이종구', '김도훈')">전체보기</button>
+                                                </div>
+                                            </div>
+                                                                        </div>
+                                <div style="flex:1 0 0">
+                                    <a href="/fighter/19443685">
+                                        <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
+                                            src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/19443685/19443685_ranking.webp' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
+                                                                                                                            </a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+
+                
+                
+
+                
+            </div>
+        </div>
+    </div>
+    <div id="modalBackground" class="modal-background" onclick="closeScoreCard(event)">
+        <div id="modal" class="modal">
+            <span id="closeModal" class="close-button" onclick="closeScoreCard(event)">&times;</span>
+            <h2>Score Card</h2>
+            <div style="display:flex; gap:10px; margin-top:20px; font-size:0.8rem">
+                <div style="flex:1 0 0; ">
+                    <table >
+                        <tr>
+                            <td colspan="5">
+                                <div>
+                                    <span class="large-txt">부심</span><br>
+                                    <span id='referee_name1'></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="background-color:white; font-weight:bold;" class="large-txt">화이트</td>
+                            <td></td>
+                            <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
+                            <td></td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
+                        </tr>
+                        <tr>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score111'></td>
+                            <td id='minus_score111'></td>
+                            <td class="large-txt">1</td>
+                            <td id='score121'></td>
+                            <td id='minus_score121'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score112'></td>
+                            <td id='minus_score112'></td>
+                            <td class="large-txt">2</td>
+                            <td id='score122'></td>
+                            <td id='minus_score122'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score113'></td>
+                            <td id='minus_score113'></td>
+                            <td class="large-txt">3</td>
+                            <td id='score123'></td>
+                            <td id='minus_score123'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td colspan="2" id='total_score11'></td>
+                            <td class="large-txt">Total</td>
+                            <td colspan="2" id='total_score12'></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="5">
+                                <div style="display:flex;">
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn11'></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id='score114'></td>
+                            <td id='minus_score114'></td>
+                            <td class="large-txt">4</td>
+                            <td id='score124'></td>
+                            <td id='minus_score124'></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="flex:1 0 0; ">
+                    <table >
+                        <tr>
+                            <td colspan="5">
+                                <div>
+                                    <span class="large-txt">부심</span><br>
+                                    <span id='referee_name2'></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="background-color:white; font-weight:bold;" class="large-txt">화이트</td>
+                            <td></td>
+                            <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
+                            <td></td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
+                        </tr>
+                        <tr>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score211'></td>
+                            <td id='minus_score211'></td>
+                            <td class="large-txt">1</td>
+                            <td id='score221'></td>
+                            <td id='minus_score221'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score212'></td>
+                            <td id='minus_score212'></td>
+                            <td class="large-txt">2</td>
+                            <td id='score222'></td>
+                            <td id='minus_score222'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score213'></td>
+                            <td id='minus_score213'></td>
+                            <td class="large-txt">3</td>
+                            <td id='score223'></td>
+                            <td id='minus_score223'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td colspan="2" id='total_score21'></td>
+                            <td class="large-txt">Total</td>
+                            <td colspan="2" id='total_score22'></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="5">
+                                <div style="display:flex;">
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn21'></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id='score214'></td>
+                            <td id='minus_score214'></td>
+                            <td class="large-txt">4</td>
+                            <td id='score224'></td>
+                            <td id='minus_score224'></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="flex:1 0 0; ">
+                    <table >
+                        <tr>
+                            <td colspan="5">
+                                <div>
+                                    <span class="large-txt">부심</span><br>
+                                    <span id='referee_name3'></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="background-color:white; font-weight:bold;" class="large-txt">화이트</td>
+                            <td></td>
+                            <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
+                            <td></td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
+                        </tr>
+                        <tr>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score311'></td>
+                            <td id='minus_score311'></td>
+                            <td class="large-txt">1</td>
+                            <td id='score321'></td>
+                            <td id='minus_score321'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score312'></td>
+                            <td id='minus_score312'></td>
+                            <td class="large-txt">2</td>
+                            <td id='score322'></td>
+                            <td id='minus_score322'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td id='score313'></td>
+                            <td id='minus_score313'></td>
+                            <td class="large-txt">3</td>
+                            <td id='score323'></td>
+                            <td id='minus_score323'></td>
+                        </tr>
+                        <tr class="scoreDetail">
+                            <td colspan="2" id='total_score31'></td>
+                            <td class="large-txt">Total</td>
+                            <td colspan="2" id='total_score32'></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="5">
+                                <div style="display:flex;">
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn31'></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id='score314'></td>
+                            <td id='minus_score314'></td>
+                            <td class="large-txt">4</td>
+                            <td id='score324'></td>
+                            <td id='minus_score324'></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 응원 모달 -->
+    <div id="cheerModalBackground" class="modal-background" onclick="closeCheerModal(event)">
+        <div id="cheerModal" class="modal" style="width:900px; height:560px;">
+            <span class="close-button" onclick="closeCheerModal(event)">&times;</span>
+            <h2 id="cheerModalTitle">응원 메세지</h2>
+
+            <div style="display:flex; gap:8px; margin-top:10px;">
+                                    <input type="text" id="cheerModalInput" maxlength="50" placeholder="응원 한마디"
+                    style="flex:1 0 0; border:1px solid #ccc; border-radius:6px; padding:10px; font-size:0.95rem;">
+                    <button type="button" class="cheer-btn" onclick="cheerModalWrite()">등록</button>
+                                <!-- <button type="button" class="cheer-btn" style="background:#ffba3c; color:black; font-weight:bold;" onclick="cheerModalRefresh()">리스트 갱신</button> -->
+            </div>
+
+            <div id="cheerModalList" style="margin-top:12px; height:380px; overflow:auto; border:1px solid #ddd; border-radius:6px; padding:10px; background:#fafafa;"></div>
+            <div id="cheerModalPaging" style="display:flex; gap:6px; justify-content:center; margin-top:10px;"></div>
+        </div>
+    </div>
+
+    <script>
+        
+        $(document).ready(function() {
+            var key_visual_swiper = new Swiper('.key_visual_wrap', {
+                // Optional parameters
+                speed: 300,
+                nested: true,
+                loop: true,
+                spaceBetween: 0,
+                slidesPerView: 1,
+                centeredSlides: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 3000,
+                },
+                navigation: {
+                    nextEl: '.key_visual_wrap .swiper-button-next',
+                    prevEl: '.key_visual_wrap .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.key_visual_wrap .swiper-pagination',
+                    type: 'bullets',
+                },
+            });
+
+            var training_center_swiper = new Swiper('.training_center_wrap', {
+                // Optional parameters
+                speed: 250,
+                nested: true,
+                loop: true,
+                spaceBetween: 30,
+                slidesPerView: 1.65,
+                centeredSlides: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 3000,
+                },
+                navigation: {
+                    nextEl: '.training_center_wrap .swiper-button-next',
+                    prevEl: '.training_center_wrap .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.training_center_wrap .swiper-pagination',
+                    type: 'bullets',
+                },
+            });
+
+            const openModalButton = document.getElementById('openModal');
+            const closeModalButton = document.getElementById('closeModal');
+            const modalBackground = document.getElementById('modalBackground');
+            const modal = document.getElementById('modal');
+
+            // openModalButton.addEventListener('click', () => {
+            //     modalBackground.style.display = 'flex';
+            //     document.body.style.overflow = 'hidden';
+            //     setTimeout(() => {
+            //         modal.classList.add('show');
+            //     }, 10); // Slight delay to trigger animation
+            // });
+
+            // closeModalButton.addEventListener('click', () => {
+            //     modal.classList.remove('show');
+            //     modal.classList.add('hide');
+            //     setTimeout(() => {
+            //         modalBackground.style.display = 'none';
+            //         modal.classList.remove('hide');
+            //         document.body.style.overflow = 'auto';
+            //     }, 300); // Duration matches CSS transition
+            // });
+
+            // // Optional: close modal when clicking outside of it
+            // modalBackground.addEventListener('click', (event) => {
+            //     if (event.target === modalBackground) {
+            //         closeModalButton.click();
+            //     }
+            // });
+
+        });
+
+        let openScoreCard = (scoreSeq, name1, name2) => {
+            if(!scoreSeq){
+                alert("등록된 채점표가 없습니다.");
+                return;
+            }else{
+                // alert('/findScore.php?score_seq=' + scoreSeq)
+                $.ajax({
+                    url: '/findScore.php?score_seq=' + scoreSeq,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (info) {
+                        console.log(info);
+                        Object.keys(info).forEach(key => {
+                            if(key.includes("overtimeYn")){
+                                if(info[key] === '1'){
+                                    $(`#${key}`).text("O");
+                                }else{
+                                    $(`#${key}`).text("X");
+                                }
+                            }else{
+                                $(`#${key}`).text(info[key] === '0'? '' : info[key]);
+                            }
+                            
+                        });
+                        $(".score_fighter_name1").text(name2);
+                        $(".score_fighter_name2").text(name1);
+                    },
+                    error: function (error) {
+                        console.error('API 호출 실패:', error);
+                    }
+                });
+
+
+                document.getElementById('modalBackground').style.display = 'flex';
+                setTimeout(() => {
+                    document.getElementById('modal').classList.add('show');
+                }, 10); // Slight delay to trigger animation
+            }
+            
+        }
+
+        let closeScoreCard = (e) => {
+            const targetId = $(e.target).attr("id");            
+            if(targetId === "modalBackground" ||  targetId === "closeModal"){
+                document.getElementById('modal').classList.remove('show');
+                document.getElementById('modal').classList.add('hide');
+                setTimeout(() => {
+                    document.getElementById('modalBackground').style.display = 'none';
+                    document.getElementById('modal').classList.remove('hide');
+                    document.body.style.overflow = 'auto';
+                }, 300); // Duration matches CSS transition
+            }
+        }
+
+        let winnerVote = (historySeq, guessWiner) => {
+            $.ajax({
+                type: 'POST',
+                url: '/theme/blackcombat/api/winner_vote.php', // 실제 추가를 처리하는 PHP 파일 경로
+                data: {
+                    "historySeq": historySeq,
+                    "guessWiner": guessWiner
+                },
+                success: function(response) {
+                    // 서버에서 추가 성공한 경우
+                    console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
+                    location.reload();
+                },
+                error: function(error) {
+                    console.error('Error adding data:', error);
+                    // 에러 처리 (실제 프로덕션에서는 사용자에게 알림 등을 보여주어야 함)
+                }
+            });
+        }
+        
+
+
+    ////////////////// 응원로직 /////////////////
+     // ====== 설정 ======
+    const CHEER_REFRESH_MS = 10000;
+    const CHEER_MINI_LIMIT = 3;
+    const CHEER_API_BASE = '/theme/blackcombat/api/cheering';
+
+    // 모달 상태
+    let cheerModalState = {
+        fightSeq: null,
+        eventSeq: 287,
+        page: 1,
+        perPage: 20,
+        total: 0,
+        name1: '',
+        name2: ''
+    };
+
+    // ====== 미니피드 배치 갱신 ======
+    function collectFightSeqs() {
+        const seqs = [];
+        $('.cheer-mini').each(function(){
+        seqs.push($(this).data('fight-seq'));
+        });
+        return seqs;
+    }
+
+    function renderMini(fightSeq, items) {
+        const $box = $('#cheer-mini-' + fightSeq);
+        if (!$box.length) return;
+
+        if (!items.comment || items.comment.length === 0) {
+                            $box.html('<div class="cheer-empty">응원 메세지를 남겨주세요!</div>');
+                        return;
+        }
+
+        let html = '';
+        items.comment.forEach(it => {
+        // 화면 XSS 방어: text로 넣을거라 여기선 escape 크게 필요없지만, 안전하게 최소 처리
+        const nick = $('<div/>').text(it.nickname || '익명').html();
+        const msg  = $('<div/>').text(it.message || '').html();
+        const t = formatMiniTime(it.created);
+        html += `
+            <div class="cheer-line">
+                <b>${nick}</b>
+                <span class="cheer-msg">${msg}</span>
+                <span class="cheer-time">${t}</span>
+            </div>
+            `;
+        });
+        $box.html(html);
+
+        $box.parent().find(".cheer-open").html("전체보기("+items.cnt+")");
+    }
+
+    function cheerRefreshAll() {
+        const seqs = collectFightSeqs();
+        if (seqs.length === 0) return;
+
+        $.ajax({
+        url: CHEER_API_BASE + '/cheer_latest_batch.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            fightSeqs: seqs.join(','),
+            limit: CHEER_MINI_LIMIT
+        },
+        success: function(res){
+            if (!res || !res.ok) return;
+            const data = res.data || {};
+            seqs.forEach(f => renderMini(f, data[f] || []));
+        }
+        });
+    }
+
+    // 페이지 로드 후 1회 + 10초마다
+    $(document).ready(function(){
+        cheerRefreshAll();
+        
+                    setInterval(cheerRefreshAll, CHEER_REFRESH_MS);
+            });
+
+    // ====== 카드에서 등록 ======
+    function cheerWrite(fightSeq) {
+        const eventSeq = 287;
+        const $input = $('#cheer-input-' + fightSeq);
+        const msg = ($input.val() || '').trim();
+        if (!msg) { alert('메세지를 입력해주세요.'); return; }
+
+        $.ajax({
+        url: CHEER_API_BASE + '/cheer_write.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            event_seq: eventSeq,
+            fight_history_seq: fightSeq,
+            message: msg
+        },
+        success: function(res){
+            if (!res || !res.ok) {
+            alert(res && res.msg ? res.msg : '등록 실패');
+            return;
+            }
+            $input.val('');
+            // 등록 후 해당 카드만 바로 갱신하고 싶으면 배치 호출해도 됨 (간단히 전체 갱신)
+            cheerRefreshAll();
+        },
+        error: function(){
+            alert('서버 오류');
+        }
+        });
+    }
+
+    // ====== 모달 열기/닫기 ======
+    function openCheerModal(fightSeq, name1, name2) {
+        cheerModalState.fightSeq = fightSeq;
+        cheerModalState.page = 1;
+        cheerModalState.name1 = name1 || '';
+        cheerModalState.name2 = name2 || '';
+
+        $('#cheerModalTitle').text(`응원 메세지 - ${cheerModalState.name1} vs ${cheerModalState.name2}`);
+        $('#cheerModalInput').val('');
+
+        $('#cheerModalBackground').css('display', 'flex');
+        setTimeout(() => $('#cheerModal').addClass('show'), 10);
+
+        cheerModalLastKey = '';      // ✅ 모달 열 때 초기화
+        cheerModalRefresh(false, true); // ✅ 첫 로드 + 맨 아래로 붙이기
+                    startCheerModalLive();       // ✅ 라이브 시작
+        
+    }
+
+    function closeCheerModal(e) {
+        const targetId = $(e.target).attr('id');
+        if (targetId === 'cheerModalBackground' || $(e.target).hasClass('close-button')) {
+            stopCheerModalLive(); // ✅ 라이브 중지
+
+            $('#cheerModal').removeClass('show').addClass('hide');
+            setTimeout(() => {
+                $('#cheerModalBackground').hide();
+                $('#cheerModal').removeClass('hide');
+            }, 300);
+        }
+    }
+
+    // ====== 모달 리스트/페이징 ======
+    function cheerModalRefresh() {
+        if (!cheerModalState.fightSeq) return;
+
+        const $list = $('#cheerModalList');
+        const el = $list[0];
+
+        // ✅ 갱신 전 스크롤 상태 저장
+        const prevScrollTop = el ? el.scrollTop : 0;
+        const prevScrollHeight = el ? el.scrollHeight : 0;
+
+        // 사용자가 "거의 맨 위"를 보고 있으면, 갱신 후에도 위에 붙여주기
+        const STICKY_TOP_PX = 20;
+        const wasAtTop = el ? (prevScrollTop <= STICKY_TOP_PX) : true;
+
+        $.ajax({
+            url: CHEER_API_BASE + '/cheer_list.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                fight_history_seq: cheerModalState.fightSeq,
+                page: cheerModalState.page,
+                perPage: cheerModalState.perPage
+            },
+            success: function(res) {
+                if (!res || !res.ok) {
+                    alert('목록 조회 실패');
+                    return;
+                }
+
+                cheerModalState.total = res.total || 0;
+
+                // ✅ DOM 갱신(최신글이 위로 오는 기존 구조 유지)
+                renderCheerModalList(res.list || []);
+                renderCheerModalPaging();
+
+                // ✅ 갱신 후 스크롤 보정
+                const newScrollHeight = el ? el.scrollHeight : 0;
+
+                if (!el) return;
+
+                if (wasAtTop) {
+                    // 사용자가 원래 위를 보고 있었다면, 계속 위에 붙여주기
+                    el.scrollTop = 0;
+                } else {
+                    // 사용자가 중간/아래를 보고 있었다면, "보던 위치" 유지
+                    // 위에 새 글이 추가되면 scrollHeight가 증가하니 그 증가분만큼 scrollTop도 증가시켜 보정
+                    const diff = newScrollHeight - prevScrollHeight;
+                    el.scrollTop = prevScrollTop + diff;
+                }
+            }
+        });
+    }
+
+    function renderCheerModalList(list) {
+        if (!list.length) {
+            $('#cheerModalList').html('<div class="cheer-empty">아직 등록된 응원 메세지가 없습니다.</div>');
+            return;
+        }
+
+
+        console.log(list);
+        let html = '';
+        list.forEach(it => {
+            const nick = $('<div/>').text(it.nickname || '익명').html();
+            const msg  = $('<div/>').text(it.message || '').html();
+            const dt = formatMiniTime(it.created); 
+
+            let delBtn = '';
+                        
+
+            html += `
+            <div style="padding:8px 6px; border-bottom:1px solid #e6e6e6;">
+                <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+                <div><b>${nick}</b></div>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <div style="color:#999; font-size:0.8rem;">${dt}</div>
+                    ${delBtn}
+                </div>
+                </div>
+                <div style="margin-top:4px; font-size:0.95rem;" class="cheer-line">${msg}</div>
+            </div>
+            `;
+        });
+
+        $('#cheerModalList').html(html);
+    }
+
+    function renderCheerModalPaging() {
+        const totalPage = Math.ceil((cheerModalState.total || 0) / cheerModalState.perPage);
+        const $p = $('#cheerModalPaging');
+
+        if (totalPage <= 1) { $p.html(''); return; }
+
+        const cur = cheerModalState.page;
+        let html = '';
+
+        function pageBtn(p, label, disabled=false) {
+        const dis = disabled ? 'opacity:0.4; pointer-events:none;' : '';
+        return `<button type="button" class="cheer-btn" style="background:#333; ${dis}" onclick="cheerModalGo(${p})">${label}</button>`;
+        }
+
+        html += pageBtn(Math.max(1, cur-1), '이전', cur === 1);
+
+        // 간단히 현재 기준 ±2 페이지만
+        const start = Math.max(1, cur - 2);
+        const end = Math.min(totalPage, cur + 2);
+        for (let i=start; i<=end; i++) {
+        html += `<button type="button" class="cheer-btn" style="background:${i===cur ? '#ffba3c' : '#555'}; color:${i===cur ? '#111' : '#fff'}" onclick="cheerModalGo(${i})">${i}</button>`;
+        }
+
+        html += pageBtn(Math.min(totalPage, cur+1), '다음', cur === totalPage);
+
+        $p.html(html);
+    }
+
+    function cheerModalGo(p) {
+        cheerModalState.page = p;
+        cheerModalRefresh();
+    }
+
+    // ====== 모달에서 등록 ======
+    function cheerModalWrite() {
+        if (!cheerModalState.fightSeq) return;
+
+        const msg = ($('#cheerModalInput').val() || '').trim();
+        if (!msg) { alert('메세지를 입력해주세요.'); return; }
+
+        $.ajax({
+        url: CHEER_API_BASE + '/cheer_write.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            event_seq: cheerModalState.eventSeq,
+            fight_history_seq: cheerModalState.fightSeq,
+            message: msg
+        },
+        success: function(res){
+            if (!res || !res.ok) {
+            alert(res && res.msg ? res.msg : '등록 실패');
+            return;
+            }
+            $('#cheerModalInput').val('');
+            // 모달은 자동새로고침 없으니 등록 후에는 "리스트 갱신"
+            cheerModalRefresh();
+            // 미니도 즉시 갱신
+            cheerRefreshAll();
+        }
+        });
+    }
+
+    $(document).on('keydown', '.cheer-input', function(e){
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            const fightSeq = $(this).closest('.cheer-mini').data('fight-seq');
+            cheerWrite(fightSeq);
+        }
+    });
+
+    $(document).on('keydown', '#cheerModalInput', function(e){
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            cheerModalWrite();
+        }
+    });
+
+    $(document).on('input', '.cheer-input, #cheerModalInput', function(){
+        const max = 50;
+        const v = $(this).val();
+        if(v && v.length > max){
+            $(this).val(v.substring(0, max));
+        }
+    });
+
+    
+        function parseMySqlDatetime(dtStr){
+            if(!dtStr) return null;
+            return new Date(dtStr.replace(' ', 'T'));
+        }
+        function pad2(n){ return n < 10 ? '0'+n : ''+n; }
+
+        function formatMiniTime(createdAt){
+            const d = parseMySqlDatetime(createdAt);
+            if(!d || isNaN(d.getTime())) return '';
+
+            const now = new Date();
+            let diffMs = now.getTime() - d.getTime();
+
+            // 미래/오차 방지
+            if (diffMs < 0) diffMs = 0;
+
+            const diffMin = Math.floor(diffMs / 60000);
+
+            // 24시간(1440분) 이내면 "x시간 y분전"
+            if (diffMin < 1440) {
+                const h = Math.floor(diffMin / 60);
+                const m = diffMin % 60;
+
+                if (diffMin === 0) return '(방금전)';
+                if (h === 0) return `(${m}분전)`;
+                if (m === 0) return `(${h}시간전)`;
+                return `(${h}시간 ${m}분전)`;
+            }
+
+            // 24시간 초과면 날짜/시간
+            const mm = pad2(d.getMonth()+1);
+            const dd = pad2(d.getDate());
+            const hh = pad2(d.getHours());
+            const mi = pad2(d.getMinutes());
+            return `${mm}/${dd} ${hh}:${mi}`;
+        }
+
+
+        // ✅ 모달 실시간 폴링(채팅형)
+        const CHEER_MODAL_LIVE_MS = 1500; // 1~2초 사이 추천: 1200~2000
+        let cheerModalLiveTimer = null;
+        let cheerModalLastKey = ''; // 마지막 항목 식별(변경 감지용)
+
+        
+        function startCheerModalLive(){
+            stopCheerModalLive(); // 중복 방지
+
+            cheerModalLiveTimer = setInterval(() => {
+                // 모달이 닫혀있거나, fightSeq 없으면 중지
+                if(!cheerModalState.fightSeq || !$('#cheerModalBackground').is(':visible')){
+                    stopCheerModalLive();
+                    return;
+                }
+
+                cheerModalRefresh(true); // ✅ silent 갱신
+            }, CHEER_MODAL_LIVE_MS);
+        }
+
+        function stopCheerModalLive(){
+            if(cheerModalLiveTimer){
+                clearInterval(cheerModalLiveTimer);
+                cheerModalLiveTimer = null;
+            }
+        }
+    </script>
+
+    </div>
+</div>
+
+</div>
+<!-- } 콘텐츠 끝 -->
+
+<hr>
+
+<!-- 하단 시작 { -->
+<div id="ft">
+    <div class="footer_social">
+        <div class="footer_social_title"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/footer_social_title.png" /></div>
+
+        <div class="footer_social_items">
+            <div class="footer_social_item"><a href="https://www.youtube.com/channel/UC_IYjiKaQBPq-K1Iq4sM-UQ" class="footer_social_item_anchor" target="_blank"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/footer_social_youtube_icon.png" /></a></div>
+            <div class="footer_social_item"><a href="https://www.instagram.com/blackcombat_official/" class="footer_social_item_anchor" target="_blank"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/footer_social_instagram_icon.png" /></a></div>
+        </div>
+    </div>
+
+    <div class="footer_copyright">
+        <p style="padding-bottom:5px;">회사명 : 주식회사 이데아 파라곤</p>
+        <p style="padding-bottom:5px;">주소 : 서울시 성동구 서울숲2길 35</p>
+        <p style="padding-bottom:5px;">사업자 등록번호 : 682-81-02925</p>
+        <p style="padding-bottom:5px;">대표 : 박평화</p>
+        <p style="padding-bottom:5px;">전화 : 070-5222-9146</p>
+        <p style="padding-bottom:5px;">통신판매업신고번호 : 2025-서울성동-1110</p>
+        <p style="padding-bottom:10px;">개인정보 보호책임자 : 박영광 (ideaparagon.official@gmail.com)</p>
+
+        <p>Blackcombat © 2026. All Rights Reserved.</p>
+    </div>
+
+    <button type="button" id="top_btn">
+    	<i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span>
+    </button>
+
+    <script>
+    $(function() {
+        $("#top_btn").on("click", function() {
+            $("html, body").animate({scrollTop:0}, '500');
+            return false;
+        });
+    });
+    </script>
+</div>
+
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+
+</body>
+</html>
