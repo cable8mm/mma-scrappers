@@ -6,6 +6,7 @@ use Cable8mm\MmaScrapers\DTO\FighterDTO;
 
 /**
  * The FighterMatcher is responsible for determining if two FighterDTOs represent the same fighter.
+ *
  * It uses a combination of Sherdog ID matching, alias dictionary, and fuzzy name matching to make this determination.
  *
  * Example usage:

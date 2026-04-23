@@ -7,6 +7,7 @@ use Cable8mm\MmaScrapers\Aggregators\FightAggregator;
 
 /**
  * The FightDeduplicator is responsible for deduplicating a list of FightDTOs by grouping them based on their similarity and merging them using a FightAggregator.
+ *
  * The group function groups fights that are considered the same based on the FightAggregator's isSameFight method.
  * The deduplicate function merges each group of similar fights into a single FightDTO using the FightAggregator's merge method.
  *

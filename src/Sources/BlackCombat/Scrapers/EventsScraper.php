@@ -7,6 +7,7 @@ use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
 
 /**
  * The EventsScraper class is responsible for scraping a list of events from a given URL and returning an array of EventDTOs.
+ *
  * It uses an HTTP client to fetch the HTML content and a parser to extract the relevant information.
  *
  * Example usage:

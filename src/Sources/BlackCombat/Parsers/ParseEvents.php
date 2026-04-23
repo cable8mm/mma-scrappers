@@ -7,6 +7,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * The ParseEvents class is responsible for parsing a list of events from HTML and returning an array of EventDTOs.
+ *
  * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
  *
  * Example usage:

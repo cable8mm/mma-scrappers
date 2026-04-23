@@ -87,3 +87,7 @@ Temporary Items
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/phpunit,visualstudiocode,macos,git,composer
+
+# Doctum generated files
+/build/
+/cache/

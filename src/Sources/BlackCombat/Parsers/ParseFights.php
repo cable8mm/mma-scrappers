@@ -12,6 +12,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * The ParseFights class is responsible for parsing fight details from HTML and returning an array of FightDTOs.
+ *
  * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
  *
  * Example usage:

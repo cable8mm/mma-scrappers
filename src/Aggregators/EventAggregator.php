@@ -6,6 +6,7 @@ use Cable8mm\MmaScrapers\DTO\EventDTO;
 
 /**
  * The EventAggregator is responsible for removing duplicate events.
+ *
  * Events are determined to be identical based on their name and date.
  * If the names are similar or the dates are the same, they can be considered identical events.
  * The merge function combines two EventDTOs into one, preferring non-null values.

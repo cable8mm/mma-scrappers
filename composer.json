@@ -45,6 +45,8 @@
         ],
         "test": [
             "vendor/bin/phpunit"
-        ]
+        ],
+        "apidoc": "rm -rf build; rm -rf cache; doctum.phar update doctum.php --output-format=github --no-ansi --no-progress -v;",
+        "opendoc": "open build/index.html"
     }
 }

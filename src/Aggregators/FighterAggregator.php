@@ -6,6 +6,7 @@ use Cable8mm\MmaScrapers\DTO\FighterDTO;
 
 /**
  * The FighterAggregator is responsible for merging two FighterDTOs that represent the same fighter.
+ *
  * The merge function combines two FighterDTOs into one, preferring non-null values and resolving conflicts.
  * The isSameFighter function determines if two FighterDTOs represent the same fighter based on their Sherdog ID or similar names.
  *

@@ -6,6 +6,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * The ParseSearchResults class is responsible for parsing search results from HTML and returning an array of fighter information.
+ *
  * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
  *
  * Example usage:

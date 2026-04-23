@@ -7,6 +7,7 @@ use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseFights;
 
 /**
  * The FightsScraper class is responsible for scraping fight details from a given URL and returning an array of FightDTOs.
+ *
  * It uses an HTTP client to fetch the HTML content and a parser to extract the relevant information.
  *
  * Example usage:

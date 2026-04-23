@@ -8,6 +8,7 @@ use Cable8mm\MmaScrapers\DTO\FighterDTO;
 
 /**
  * The FighterScraper class is responsible for scraping fighter details from a given URL and returning a FighterDTO.
+ *
  * It uses an HTTP client to fetch the HTML content and a parser to extract the relevant information.
  *
  * Example usage:

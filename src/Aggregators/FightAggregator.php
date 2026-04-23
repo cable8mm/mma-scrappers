@@ -8,6 +8,7 @@ use Cable8mm\MmaScrapers\Enums\Source;
 
 /**
  * The FightAggregator is responsible for merging two FightDTOs that represent the same fight.
+ *
  * It uses a FighterAggregator to merge the fighter information for both the red and blue corners.
  * The merge function combines two FightDTOs into one, preferring non-null values and resolving conflicts.
  * The isSameFight function determines if two FightDTOs represent the same fight based on their fighters.

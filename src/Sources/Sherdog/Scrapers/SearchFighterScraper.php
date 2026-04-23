@@ -6,6 +6,7 @@ use Cable8mm\MmaScrapers\Contracts\HttpClientInterface;
 
 /**
  * The SearchFighterScraper class is responsible for scraping search results for fighters from Sherdog based on a given name.
+ *
  * It uses an HTTP client to fetch the HTML content of the search results page.
  *
  * Example usage:

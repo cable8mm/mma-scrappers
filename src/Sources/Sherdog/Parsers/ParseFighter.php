@@ -7,6 +7,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * The ParseFighter class is responsible for parsing fighter details from HTML and returning a FighterDTO.
+ *
  * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
  *
  * Example usage:
