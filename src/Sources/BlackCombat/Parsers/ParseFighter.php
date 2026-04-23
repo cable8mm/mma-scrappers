@@ -5,8 +5,25 @@ namespace Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers;
 use Cable8mm\MmaScrapers\DTO\FighterDTO;
 use Symfony\Component\DomCrawler\Crawler;
 
+/**
+ * The ParseFighter class is responsible for parsing fighter details from HTML and returning a FighterDTO.
+ *
+ * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
+ *
+ * Example usage:
+ * $html = file_get_contents('fighter_detail.html');
+ * $parser = new ParseFighter();
+ * $fighterDTO = $parser($html);
+ * // $fighterDTO will contain the parsed fighter details
+ */
 class ParseFighter
 {
+    /**
+     * Parse fighter details from HTML and return a FighterDTO.
+     *
+     * @param string $html
+     * @return FighterDTO
+     */
     public function __invoke(string $html): FighterDTO
     {
         $crawler = new Crawler($html);

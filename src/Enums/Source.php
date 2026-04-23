@@ -3,7 +3,11 @@
 namespace Cable8mm\MmaScrapers\Enums;
 
 /**
- * Enum representing the source of the scraped data. The values indicate the priority of the sources, with higher values representing more reliable sources.
+ * Enum representing the source of the scraped data.
+ *
+ * The values indicate the priority of the sources, with higher values representing more reliable sources.
+ *
+ * The priority is as follows:
  * - SHERDOG: 3 (most reliable)
  * - TAPOLOGY: 2
  * - OFFICIAL: 1 (least reliable)

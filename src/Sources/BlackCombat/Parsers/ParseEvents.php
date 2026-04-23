@@ -5,8 +5,25 @@ namespace Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers;
 use Cable8mm\MmaScrapers\DTO\EventDTO;
 use Symfony\Component\DomCrawler\Crawler;
 
+/**
+ * The ParseEvents class is responsible for parsing a list of events from HTML and returning an array of EventDTOs.
+ *
+ * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
+ *
+ * Example usage:
+ * $html = file_get_contents('events_list.html');
+ * $parser = new ParseEvents();
+ * $events = $parser($html);
+ * // $events will contain an array of EventDTOs with the parsed event details
+ */
 class ParseEvents
 {
+    /**
+     * Parse a list of events from HTML and return an array of EventDTOs.
+     *
+     * @param string $html
+     * @return EventDTO[]
+     */
     public function __invoke(string $html): array
     {
         $crawler = new Crawler($html);

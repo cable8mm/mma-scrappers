@@ -4,26 +4,34 @@ namespace Cable8mm\MmaScrapers\Aggregators;
 
 use Cable8mm\MmaScrapers\DTO\FighterDTO;
 
-/*
-* FighterAggregator
-*
-* - 역할: 두 FighterDTO를 병합하여 하나의 완전한 FighterDTO 생성
-* - 주요 기능: 동일 인물 판단, 값 선택 전략, 이름 유사도 판단
-*
-* 병합 규칙:
-* - 동일 인물 판단: sherdogId > 이름 유사도
-* - 값 선택 전략: Sherdog 우선, 그 외는 null이 아닌 값 선택
-* - 이름 유사도: 완전 일치 > 포함 관계 > Levenshtein 거리 <= 2
-*
-* @author Samgu Lee <cable8mm@gmail.com>
-* @date 2026-04-21
-* @license MIT
-*/
+/**
+ * The FighterAggregator is responsible for merging two FighterDTOs that represent the same fighter.
+ *
+ * The merge function combines two FighterDTOs into one, preferring non-null values and resolving conflicts.
+ * The isSameFighter function determines if two FighterDTOs represent the same fighter based on their Sherdog ID or similar names.
+ *
+ * Example usage:
+ * $agg = new FighterAggregator();
+ * $fighter1 = new FighterDTO(name: 'Fighter A', sherdogId: 123);
+ * $fighter2 = new FighterDTO(name: 'Fighter A', sherdogId: 123);
+ * if ($agg->isSameFighter($fighter1, $fighter2)) {
+ *     $merged = $agg->merge($fighter1, $fighter2);
+ *     // $merged will have merged information from both fighters
+ * }
+ */
 class FighterAggregator
 {
+    /**
+     * Merges two FighterDTOs into one, preferring non-null values and resolving conflicts.
+     * Throws an exception if the fighters are determined to be different.
+     *
+     * @param FighterDTO $a The first fighter to merge.
+     * @param FighterDTO $b The second fighter to merge.
+     * @return FighterDTO The merged fighter.
+     * @throws \InvalidArgumentException If the fighters are determined to be different.
+     */
     public function merge(FighterDTO $a, FighterDTO $b): FighterDTO
     {
-        // 1️⃣ 동일 인물인지 판단
         if (!$this->isSameFighter($a, $b)) {
             throw new \InvalidArgumentException('Different fighters');
         }
@@ -42,61 +50,66 @@ class FighterAggregator
     }
 
     /**
-     * 동일 파이터 판단
+     * Determines if two FighterDTOs represent the same fighter based on their Sherdog ID or similar names.
+     *
+     * @param FighterDTO $a The first fighter to compare.
+     * @param FighterDTO $b The second fighter to compare.
+     * @return bool True if the fighters are considered the same, false otherwise.
      */
     public function isSameFighter(FighterDTO $a, FighterDTO $b): bool
     {
-        // 1️⃣ sherdogId가 있으면 최우선
         if ($a->sherdogId && $b->sherdogId) {
             return $a->sherdogId === $b->sherdogId;
         }
 
-        // 2️⃣ 이름 기반 fallback
         return $this->isSimilarName($a->name, $b->name);
     }
 
-    /**
-     * 값 선택 전략
+    /** Picks the non-null value between two options, preferring the second option if both are non-null.
+     *
+     * @param mixed $a The first value to compare.
+     * @param mixed $b The second value to compare.
+     * @return mixed The chosen value, which is the second option if it's non-null, otherwise the first option.
      */
     private function pick(mixed $a, mixed $b): mixed
     {
-        // Sherdog 우선 (b가 Sherdog이라고 가정)
         return $b ?? $a;
     }
 
-    /**
-     * 이름 유사도 판단 (핵심)
+    /** Determines if two names are similar enough to be considered the same fighter.
+     *
+     * @param string $a The first name to compare.
+     * @param string $b The second name to compare.
+     * @return bool True if the names are considered similar, false otherwise.
      */
     private function isSimilarName(string $a, string $b): bool
     {
         $a = $this->normalizeName($a);
         $b = $this->normalizeName($b);
 
-        // 완전 일치
         if ($a === $b) {
             return true;
         }
 
-        // 포함 관계
         if (str_contains($a, $b) || str_contains($b, $a)) {
             return true;
         }
 
-        // levenshtein 거리
         return levenshtein($a, $b) <= 2;
     }
 
     /**
-     * 이름 정규화
+     * Normalizes a fighter's name by converting it to lowercase and removing spaces and non-alphanumeric characters.
+     *
+     * @param string $name The fighter's name to normalize.
+     * @return string The normalized fighter name.
      */
     private function normalizeName(string $name): string
     {
         $name = mb_strtolower($name);
 
-        // 공백 제거
         $name = preg_replace('/\s+/', '', $name);
 
-        // 특수문자 제거
         $name = preg_replace('/[^a-z0-9가-힣]/u', '', $name);
 
         return $name;
