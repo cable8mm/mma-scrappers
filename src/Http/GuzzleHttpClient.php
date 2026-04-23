@@ -2,7 +2,7 @@
 
 namespace Cable8mm\MmaScrapers\Http;
 
-use Cable8mm\MmaScrapers\Contract\HttpClientInterface;
+use Cable8mm\MmaScrapers\Contracts\HttpClientInterface;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 

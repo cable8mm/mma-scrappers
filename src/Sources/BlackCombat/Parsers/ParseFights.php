@@ -10,8 +10,24 @@ use Cable8mm\MmaScrapers\Enums\Source;
 use Cable8mm\MmaScrapers\Normalizers\WeightClassNormalizer;
 use Symfony\Component\DomCrawler\Crawler;
 
+/**
+ * The ParseFights class is responsible for parsing fight details from HTML and returning an array of FightDTOs.
+ * It uses the Symfony DomCrawler to extract relevant information from the HTML structure.
+ *
+ * Example usage:
+ * $html = file_get_contents('event_fights.html');
+ * $parser = new ParseFights();
+ * $fights = $parser($html);
+ * // $fights will contain an array of FightDTOs with the parsed fight details
+ */
 class ParseFights
 {
+    /**
+     * Parse fight details from HTML and return an array of FightDTOs.
+     *
+     * @param string $html
+     * @return FightDTO[]
+     */
     public function __invoke(string $html): array
     {
         $crawler = new Crawler($html);
