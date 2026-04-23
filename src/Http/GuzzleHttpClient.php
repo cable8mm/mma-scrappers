@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * A concrete implementation of the HttpClientInterface using Guzzle HTTP client.
+ *
  * This class is responsible for making HTTP requests and handling responses for the MMA Scrapers project.
  * It provides a simple interface for performing GET requests and can be easily extended to support other HTTP methods if needed.
  * The GuzzleHttpClient class encapsulates the Guzzle client and manages the response internally, allowing for better separation of concerns and easier maintenance.
