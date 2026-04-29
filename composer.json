@@ -1,13 +1,19 @@
 {
     "name": "cable8mm/mma-scrapers",
-    "description": "MMA scraper library for UFC, Road FC, and Black Combat.",
+    "description": "A lightweight, extensible PHP library for scraping MMA data from multiple sources.",
     "type": "library",
     "keywords": [
-        "scraper",
+        "php",
         "mma",
-        "blackcombat",
+        "scraper",
+        "web-scraping",
+        "data-extraction",
+        "sports-data",
+        "crawler",
+        "dom-crawler",
         "ufc",
-        "roadfc"
+        "sherdog",
+        "black-combat"
     ],
     "license": "MIT",
     "authors": [

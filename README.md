@@ -1,237 +1,174 @@
-# MMA Scrapers
+# MMA Scrapers 🥊
+
+A lightweight, extensible PHP library for scraping MMA data from multiple sources.
+
+> Built for reliability, testability, and clean architecture.
 
 [![build & tests](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml)
 [![coding style](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml)
 [![minimum PHP version](https://img.shields.io/badge/php-%5E8.4-8892BF?logo=php)](https://github.com/cable8mm/mma-scrapers)
 
-## Functions
+## 🚀 Features
 
-- [x] multi-source aggregator
-- [x] identity resolution
-- [x] normalized DB
-- [x] 확장 가능 구조
+- 🔌 Multi-source scraping (BlackCombat, Sherdog, Tapology*)
+- 🧱 Clean architecture (Scraper → Parser → DTO)
+- 🧪 Fully testable with HTML fixtures
+- 🧩 Extensible source-based design
+- ⚡ No database dependency (pure library)
 
-## Installation
+## 📦 Installation
 
-Installation:
-
-```sh
+```bash
 composer require cable8mm/mma-scrapers
 ```
 
-## Description
+## 🧠 Philosophy
 
-### Scraper Flows
+This library is designed to be:
 
-```txt
-PromotionScraper
-     ↓
-EventScraper
-     ↓
-FightScraper
-     ↓
-FighterScraper
+- **Dumb but reliable**
+- Source-independent
+- Free of business logic
+
+```text
+Scraper → Parser → DTO
 ```
 
-```txt
-BlackCombatScraper
-   ↓
-BlackCombatParser
-   ↓
-BlackCombatFightParser
-   ↓
-FighterParser
+❗ This library does NOT:
+
+- Deduplicate fights
+- Merge fighters
+- Store data
+
+👉 Those responsibilities belong to the main MMA application.
+
+## 🏗 Architecture
+
+```text
+Sources/
+ ├ BlackCombat/
+ │   ├ Scrapers/
+ │   ├ Parsers/
+ │
+ ├ Sherdog/
+ │   ├ Scrapers/
+ │   ├ Parsers/
 ```
 
-### Crawling Flows
+## ✨ Usage
 
-```txt
-/events
-   ↓
-/events/black-combat-12
-   ↓
-fight card
-   ↓
-fighter links
-```
-
-### MMA aggregator's data flows
-
-```txt
-Scraper
-   ↓
-Parser
-   ↓
-DTO
-   ↓
-Matcher
-   ↓
-Deduplicator
-   ↓
-Aggregator
-   ↓
-DB (지금 설계)
-```
-
-FightDTO:
-
-```txt
-여러 source에서 수집된 FightDTO[]
-   ↓
-같은 경기끼리 그룹핑
-   ↓
-FightAggregator로 merge
-   ↓
-최종 FightDTO[]
-```
-
-## Knowledge
-
-### Architecture
-
-```txt
-events
- └ fights
-      ├ fighters (red / blue)
-      ├ fight_external_ids
-      └ (aggregated data)
-
-fighters
- ├ fighter_aliases
- └ fighter_external_ids
-```
-
-```txt
-"raw → normalized → aggregated → stored"
-```
-
-fighters table:
+### 1. Scrape Events
 
 ```php
-Schema::create('fighters', function (Blueprint $table) {
-    $table->id();
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Scrapers\EventsScraper;
 
-    $table->string('name');
-    $table->string('nickname')->nullable();
-    $table->string('instagram')->nullable();
-    $table->string('teamname')->nullable();
-    $table->string('height')->nullable();
-
-    $table->integer('win')->nullable();
-    $table->integer('lose')->nullable();
-    $table->integer('draw')->nullable();
-
-    $table->timestamps();
-});
+$scraper = new EventsScraper($httpClient);
+$events = $scraper->scrape();
 ```
+
+### 2. Parse Fights
 
 ```php
-// 정찬성 = Chan Sung Jung = Korean Zombie
-Schema::create('fighter_aliases', function (Blueprint $table) {
-    $table->id();
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseFights;
 
-    $table->foreignId('fighter_id')->constrained()->cascadeOnDelete();
-    $table->string('alias')->index();
+$parser = new ParseFights();
 
-    $table->timestamps();
-});
+$fights = $parser->parse($html);
 ```
+
+### 3. Fighter Data
 
 ```php
-// fighter_id = 1
-// source = sherdog
-// external_id = 12345
-Schema::create('fighter_external_ids', function (Blueprint $table) {
-    $table->id();
+use Cable8mm\MmaScrapers\Sources\Sherdog\Parsers\ParseFighter;
 
-    $table->foreignId('fighter_id')->constrained()->cascadeOnDelete();
+$parser = new ParseFighter();
 
-    $table->string('source'); // sherdog, tapology
-    $table->string('external_id');
-
-    $table->unique(['source', 'external_id']);
-
-    $table->timestamps();
-});
+$fighter = $parser->parse($html);
 ```
+
+## 🧱 DTO Example
 
 ```php
-Schema::create('events', function (Blueprint $table) {
-    $table->id();
-
-    $table->string('name');
-    $table->string('location')->nullable();
-
-    $table->dateTime('event_date')->index();
-
-    $table->timestamps();
-});
+new FightDTO(
+    redFighter: FighterDTO,
+    blueFighter: FighterDTO,
+    status: FightStatus::FINISHED,
+    method: FightMethod::KO,
+    round: 1,
+    time: '3:14',
+    winner: WinnerCorner::RED,
+    source: Source::SHERDOG
+);
 ```
 
-```php
-Schema::create('event_external_ids', function (Blueprint $table) {
-    $table->id();
+## 🧪 Testing
 
-    $table->foreignId('event_id')->constrained()->cascadeOnDelete();
+All parsers must be tested using fixtures.
 
-    $table->string('source');
-    $table->string('external_id');
-
-    $table->unique(['source', 'external_id']);
-});
-```
-
-```php
-Schema::create('fights', function (Blueprint $table) {
-    $table->id();
-
-    $table->foreignId('event_id')->constrained()->cascadeOnDelete();
-
-    $table->foreignId('fighter_red_id')->constrained('fighters');
-    $table->foreignId('fighter_blue_id')->constrained('fighters');
-
-    $table->string('weight_class')->nullable();
-    $table->string('method')->nullable();
-
-    $table->integer('round')->nullable();
-    $table->string('time')->nullable();
-
-    $table->foreignId('winner_id')->nullable()->constrained('fighters')->nullOnDelete();
-
-    $table->dateTime('fight_date')->index();
-
-    $table->enum('status', [
-        'scheduled', 'live', 'finished'
-        ])->default('scheduled');
-
-    $table->boolean('is_title_fight')->default(false);
-
-    $table->timestamps();
-
-    // 🔥 핵심 (순서 뒤집힘 대응)
-    $table->unique([
-        'fighter_red_id',
-        'fighter_blue_id',
-        'fight_date',
-    ]);
-});
-```
-
-```php
-Schema::create('fight_external_ids', function (Blueprint $table) {
-    $table->id();
-
-    $table->foreignId('fight_id')->constrained()->cascadeOnDelete();
-
-    $table->string('source');
-    $table->string('external_id');
-
-    $table->unique(['source', 'external_id']);
-});
-```
-
-## Test
-
-```sh
+```bash
 composer test
 ```
+
+Example:
+
+```php
+$html = file_get_contents('tests/Fixtures/sherdog_fighter.html');
+
+$parser = new ParseFighter();
+
+$fighter = $parser->parse($html);
+
+$this->assertEquals('Dalton Rosta', $fighter->name);
+```
+
+## 📌 Supported Sources
+
+| Source      | Status         |
+| ----------- | -------------- |
+| BlackCombat | ✅ Implemented |
+| Sherdog     | 🚧 In Progress |
+| Tapology    | 📝 Planned     |
+
+## 🛑 Rules
+
+### Scrapers
+
+- Only fetch HTML
+- Must use HttpClientInterface
+
+### Parsers
+
+- HTML → DTO
+- No HTTP logic
+- Deterministic output
+
+### DTOs
+
+- Immutable
+- No logic
+
+## ❌ What NOT to do
+
+- Do not add database logic
+- Do not merge fighters across sources
+- Do not deduplicate fights
+- Do not assume any source is “truth”
+
+## 🔗 Related Project
+
+👉 MMA Platform (Data aggregation & API)
+
+- <https://github.com/cable8mm/mma>
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a feature branch
+3. Add tests with fixtures
+4. Submit PR
+
+## 📄 License
+
+MIT License
