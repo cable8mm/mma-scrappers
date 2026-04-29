@@ -1,174 +1,264 @@
-# MMA Scrapers 🥊
+# MMA Scrapers
 
-A lightweight, extensible PHP library for scraping MMA data from multiple sources.
-
-> Built for reliability, testability, and clean architecture.
+A lightweight PHP library for scraping and parsing MMA data into simple DTOs.
 
 [![build & tests](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml)
 [![coding style](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml)
 [![minimum PHP version](https://img.shields.io/badge/php-%5E8.4-8892BF?logo=php)](https://github.com/cable8mm/mma-scrapers)
 
-## 🚀 Features
+## Features
 
-- 🔌 Multi-source scraping (BlackCombat, Sherdog, Tapology*)
-- 🧱 Clean architecture (Scraper → Parser → DTO)
-- 🧪 Fully testable with HTML fixtures
-- 🧩 Extensible source-based design
-- ⚡ No database dependency (pure library)
+- Source-specific scrapers and parsers for MMA websites.
+- Normalized DTOs for events, fights, and fighters.
+- Fixture-friendly parser design using Symfony DomCrawler.
+- Mockable HTTP layer through `HttpClientInterface`.
+- Helper services for fighter matching, Sherdog ID resolution, and fight deduplication.
+- No database dependency.
 
-## 📦 Installation
+## Requirements
+
+- PHP `^8.4`
+- Composer
+
+## Installation
 
 ```bash
 composer require cable8mm/mma-scrapers
 ```
 
-## 🧠 Philosophy
+For local development:
 
-This library is designed to be:
-
-- **Dumb but reliable**
-- Source-independent
-- Free of business logic
-
-```text
-Scraper → Parser → DTO
+```bash
+composer install
 ```
 
-❗ This library does NOT:
+## Supported Sources
 
-- Deduplicate fights
-- Merge fighters
-- Store data
+| Source | Events | Event detail | Fights | Fighters | Notes |
+| --- | --- | --- | --- | --- | --- |
+| BlackCombat | Yes | Yes | Yes | Yes | Official source support |
+| Sherdog | No | No | No | Yes | Fighter search and fighter detail support |
+| Tapology | No | No | No | No | Planned source |
 
-👉 Those responsibilities belong to the main MMA application.
+## Core Concepts
 
-## 🏗 Architecture
+The library is organized around a small pipeline:
 
 ```text
-Sources/
- ├ BlackCombat/
- │   ├ Scrapers/
- │   ├ Parsers/
- │
- ├ Sherdog/
- │   ├ Scrapers/
- │   ├ Parsers/
+HTTP client -> Scraper -> Parser -> DTO
 ```
 
-## ✨ Usage
+Scrapers fetch HTML and delegate extraction to parsers. Parsers are deterministic and return DTOs. Aggregators and services are available when a consuming app needs to compare, merge, or deduplicate parsed results.
 
-### 1. Scrape Events
+## Project Structure
+
+```text
+src/
+  Aggregators/      Merge related event, fight, and fighter DTOs
+  Contracts/        Scraper and HTTP interfaces
+  DTO/              EventDTO, FightDTO, FighterDTO
+  Enums/            Source, fight status, fight method, weight class
+  Http/             Guzzle HTTP client implementation
+  Matchers/         Fighter matching helpers
+  Normalizers/      Text-to-enum normalization helpers
+  Services/         Sherdog ID resolution and fight deduplication
+  Sources/
+    BlackCombat/
+      Parsers/
+      Scrapers/
+    Sherdog/
+      Parsers/
+      Scrapers/
+```
+
+## Usage
+
+### Parse BlackCombat Events From HTML
 
 ```php
-use Cable8mm\MmaScrapers\Sources\BlackCombat\Scrapers\EventsScraper;
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
 
-$scraper = new EventsScraper($httpClient);
-$events = $scraper->scrape();
+$html = file_get_contents('blackcombat_events.html');
+
+$parser = new ParseEvents();
+$events = $parser($html);
 ```
 
-### 2. Parse Fights
+### Scrape BlackCombat Events
+
+```php
+use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
+use Cable8mm\MmaScrapers\Sources\BlackCombat\Scrapers\EventsScraper;
+
+$scraper = new EventsScraper(
+    new GuzzleHttpClient(),
+    new ParseEvents()
+);
+
+$events = $scraper->scrape('https://www.blackcombat-official.com/event.php?page=10');
+```
+
+### Parse BlackCombat Fights
 
 ```php
 use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseFights;
 
+$html = file_get_contents('event_detail.html');
+
 $parser = new ParseFights();
-
-$fights = $parser->parse($html);
+$fights = $parser($html);
 ```
 
-### 3. Fighter Data
+### Scrape a Sherdog Fighter
 
 ```php
+use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
 use Cable8mm\MmaScrapers\Sources\Sherdog\Parsers\ParseFighter;
+use Cable8mm\MmaScrapers\Sources\Sherdog\Scrapers\FighterScraper;
 
-$parser = new ParseFighter();
+$scraper = new FighterScraper(
+    new GuzzleHttpClient(),
+    new ParseFighter()
+);
 
-$fighter = $parser->parse($html);
+$fighter = $scraper->scrapeById(12345);
 ```
 
-## 🧱 DTO Example
+### Resolve a Sherdog Fighter ID
 
 ```php
-new FightDTO(
-    redFighter: FighterDTO,
-    blueFighter: FighterDTO,
-    status: FightStatus::FINISHED,
-    method: FightMethod::KO,
-    round: 1,
-    time: '3:14',
-    winner: WinnerCorner::RED,
-    source: Source::SHERDOG
+use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
+use Cable8mm\MmaScrapers\Services\SherdogIdResolver;
+use Cable8mm\MmaScrapers\Sources\Sherdog\Parsers\ParseSearchResults;
+use Cable8mm\MmaScrapers\Sources\Sherdog\Scrapers\SearchFighterScraper;
+
+$search = new SearchFighterScraper(new GuzzleHttpClient());
+$parser = new ParseSearchResults();
+$resolver = new SherdogIdResolver();
+
+$html = $search->search('Chan Sung Jung');
+$candidates = $parser($html);
+
+$sherdogId = $resolver->resolve('Chan Sung Jung', $candidates);
+```
+
+### Deduplicate Fights
+
+```php
+use Cable8mm\MmaScrapers\Aggregators\FightAggregator;
+use Cable8mm\MmaScrapers\Aggregators\FighterAggregator;
+use Cable8mm\MmaScrapers\Services\FightDeduplicator;
+
+$deduplicator = new FightDeduplicator(
+    new FightAggregator(new FighterAggregator())
+);
+
+$deduplicatedFights = $deduplicator->deduplicate($fights);
+```
+
+## DTOs
+
+### `EventDTO`
+
+```php
+new EventDTO(
+    name: 'Black Combat 16',
+    location: 'Incheon, South Korea',
+    date: new DateTimeImmutable('2026-01-31'),
+    url: '/eventDetail.php?eventSeq=285',
+    externalId: '285'
 );
 ```
 
-## 🧪 Testing
+### `FighterDTO`
 
-All parsers must be tested using fixtures.
+```php
+new FighterDTO(
+    name: 'Chan Sung Jung',
+    nickname: 'The Korean Zombie',
+    instagram: 'koreanzombiemma',
+    teamname: 'Korean Zombie MMA',
+    height: '170cm',
+    win: 17,
+    lose: 8,
+    draw: 0,
+    sherdogId: 36155
+);
+```
+
+### `FightDTO`
+
+```php
+use Cable8mm\MmaScrapers\Enums\FightMethod;
+use Cable8mm\MmaScrapers\Enums\FightStatus;
+use Cable8mm\MmaScrapers\Enums\Source;
+use Cable8mm\MmaScrapers\Enums\WeightClass;
+
+new FightDTO(
+    redFighter: $redFighter,
+    blueFighter: $blueFighter,
+    source: Source::OFFICIAL,
+    status: FightStatus::FINISHED,
+    weightClass: WeightClass::FEATHERWEIGHT,
+    method: FightMethod::KO,
+    round: 1,
+    time: '3:14',
+    winner: $redFighter,
+    fightDate: new DateTimeImmutable('2026-01-31')
+);
+```
+
+## Design Rules
+
+- Keep source implementations isolated under `src/Sources/{SourceName}`.
+- Put HTTP access in scrapers, not parsers.
+- Keep parsers deterministic: raw HTML in, DTOs out.
+- Test parsers with static HTML fixtures.
+- Keep storage, API delivery, and application workflows outside this package.
+
+## Development
+
+Run tests:
 
 ```bash
 composer test
 ```
 
-Example:
+Run Pint:
 
-```php
-$html = file_get_contents('tests/Fixtures/sherdog_fighter.html');
-
-$parser = new ParseFighter();
-
-$fighter = $parser->parse($html);
-
-$this->assertEquals('Dalton Rosta', $fighter->name);
+```bash
+composer lint
 ```
 
-## 📌 Supported Sources
+Generate API documentation:
 
-| Source      | Status         |
-| ----------- | -------------- |
-| BlackCombat | ✅ Implemented |
-| Sherdog     | 🚧 In Progress |
-| Tapology    | 📝 Planned     |
+```bash
+composer apidoc
+```
 
-## 🛑 Rules
+## Testing
 
-### Scrapers
+Parser and scraper tests use HTML fixtures from `tests/Fixtures`.
 
-- Only fetch HTML
-- Must use HttpClientInterface
+```php
+$html = file_get_contents(__DIR__.'/../../Fixtures/BlackCombat/event_detail.html');
 
-### Parsers
+$parser = new ParseFights();
+$fights = $parser($html);
 
-- HTML → DTO
-- No HTTP logic
-- Deterministic output
+$this->assertNotEmpty($fights);
+```
 
-### DTOs
+Avoid real HTTP calls in tests. Inject a mocked `HttpClientInterface` when testing scrapers.
 
-- Immutable
-- No logic
+## Contributing
 
-## ❌ What NOT to do
+1. Keep the existing source/parser/scraper boundaries.
+2. Add or update fixtures for parser changes.
+3. Add unit tests for new behavior.
+4. Run `composer test` and `composer lint` before opening a pull request.
 
-- Do not add database logic
-- Do not merge fighters across sources
-- Do not deduplicate fights
-- Do not assume any source is “truth”
+## License
 
-## 🔗 Related Project
-
-👉 MMA Platform (Data aggregation & API)
-
-- <https://github.com/cable8mm/mma>
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repo
-2. Create a feature branch
-3. Add tests with fixtures
-4. Submit PR
-
-## 📄 License
-
-MIT License
+MMA Scrapers is open-sourced software licensed under the [MIT license](LICENSE).
