@@ -1,0 +1,45 @@
+You are working on a PHP scraping library for MMA data.
+
+## Rules
+
+- This is NOT an application
+- This is a reusable library
+
+## Architecture
+
+- Scraper → Parser → DTO
+- No database logic allowed
+- No business logic allowed
+
+## Source Isolation
+
+- Each source must be independent
+- Do not share parsing logic between sources
+
+## DTO Rules
+
+- DTOs must be immutable
+- No logic inside DTOs
+
+## Parser Rules
+
+- Input: HTML
+- Output: DTO
+- Must be deterministic
+
+## Scraper Rules
+
+- Only fetch HTML
+- Use HttpClientInterface
+- Must be testable with mocks
+
+## Testing
+
+- Use fixture HTML files
+- No real HTTP calls
+
+## Forbidden
+
+- No aggregation logic
+- No deduplication logic
+- No database logic
