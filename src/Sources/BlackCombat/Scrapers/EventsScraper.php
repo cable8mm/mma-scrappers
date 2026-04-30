@@ -19,6 +19,8 @@ use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
  */
 class EventsScraper
 {
+    private const URL = 'https://www.blackcombat-official.com/event.php';
+
     /**
      * EventsScraper constructor.
      *
@@ -34,11 +36,23 @@ class EventsScraper
     /**
      * Scrape a list of events from the given URL and return an array of EventDTOs.
      *
-     * @param string $url The URL of the events page to scrape.
+     * If no URL is provided, it defaults to the predefined URL for events.
+     * The method fetches the HTML content from the URL and uses the parser to extract event details, returning them as an array of EventDTOs.
+     *
+     * Note: The actual structure of EventDTOs and the parsing logic will depend on the implementation of the ParseEvents parser.
+     * Make sure to handle any exceptions or errors that may occur during the HTTP request or parsing process as needed.
+     *
+     * Example usage:
+     * $events = $scraper->scrape(); // Scrapes from the default URL
+     * $events = $scraper->scrape('https://www.blackcombat.com/custom-events'); // Scrapes from a custom URL
+     *
+     * @param string|null $url The URL of the events page to scrape. If null, the default URL will be used.
      * @return EventDTO[] An array of EventDTOs with the scraped event details.
      */
-    public function scrape(string $url): array
+    public function scrape(?string $url = null): array
     {
+        $url = $url ?? self::URL;
+
         $html = $this->http->get($url);
 
         return ($this->parser)($html);
