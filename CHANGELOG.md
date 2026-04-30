@@ -1,5 +1,14 @@
 # Release Notes
 
+## v0.2.0 - 2026-04-30
+
+### What's Changed
+
+* Update changelog action by @cable8mm in <https://github.com/cable8mm/mma-scrapers/pull/20>
+* Add laravel provider by @cable8mm in <https://github.com/cable8mm/mma-scrapers/pull/21>
+
+**Full Changelog**: <https://github.com/cable8mm/mma-scrapers/compare/v0.1.2...v0.2.0>
+
 ## v0.1.2 - 2026-04-30
 
 ### What's Changed
