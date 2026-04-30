@@ -87,12 +87,12 @@ $events = $parser($html);
 ### Scrape BlackCombat Events
 
 ```php
-use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
+use Cable8mm\MmaScrapers\Http\DefaultHttpClient;
 use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
 use Cable8mm\MmaScrapers\Sources\BlackCombat\Scrapers\EventsScraper;
 
 $scraper = new EventsScraper(
-    new GuzzleHttpClient(),
+    new DefaultHttpClient(),
     new ParseEvents()
 );
 
@@ -113,12 +113,12 @@ $fights = $parser($html);
 ### Scrape a Sherdog Fighter
 
 ```php
-use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
+use Cable8mm\MmaScrapers\Http\DefaultHttpClient;
 use Cable8mm\MmaScrapers\Sources\Sherdog\Parsers\ParseFighter;
 use Cable8mm\MmaScrapers\Sources\Sherdog\Scrapers\FighterScraper;
 
 $scraper = new FighterScraper(
-    new GuzzleHttpClient(),
+    new DefaultHttpClient(),
     new ParseFighter()
 );
 
@@ -128,12 +128,12 @@ $fighter = $scraper->scrapeById(12345);
 ### Resolve a Sherdog Fighter ID
 
 ```php
-use Cable8mm\MmaScrapers\Http\GuzzleHttpClient;
+use Cable8mm\MmaScrapers\Http\DefaultHttpClient;
 use Cable8mm\MmaScrapers\Services\SherdogIdResolver;
 use Cable8mm\MmaScrapers\Sources\Sherdog\Parsers\ParseSearchResults;
 use Cable8mm\MmaScrapers\Sources\Sherdog\Scrapers\SearchFighterScraper;
 
-$search = new SearchFighterScraper(new GuzzleHttpClient());
+$search = new SearchFighterScraper(new DefaultHttpClient());
 $parser = new ParseSearchResults();
 $resolver = new SherdogIdResolver();
 
