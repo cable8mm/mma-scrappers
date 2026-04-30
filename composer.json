@@ -30,7 +30,8 @@
     },
     "require-dev": {
         "laravel/pint": "^1.27",
-        "phpunit/phpunit": "^12.5"
+        "phpunit/phpunit": "^12.5",
+        "illuminate/support": ">=11.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,6 +41,13 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cable8mm\\MmaScrapers\\Laravel\\MmaScrapersServiceProvider"
+            ]
         }
     },
     "minimum-stability": "stable",
