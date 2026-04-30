@@ -10,7 +10,7 @@ use Cable8mm\MmaScrapers\Contracts\HttpClientInterface;
  * It uses an HTTP client to fetch the HTML content of the search results page.
  *
  * Example usage:
- * $httpClient = new GuzzleHttpClient();
+ * $httpClient = new DefaultHttpClient();
  * $scraper = new SearchFighterScraper($httpClient);
  * $searchResultsHtml = $scraper->search('Fighter Name');
  * // $searchResultsHtml will contain the HTML content of the search results page for the given fighter name

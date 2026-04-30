@@ -12,7 +12,7 @@ use Cable8mm\MmaScrapers\DTO\FighterDTO;
  * It uses an HTTP client to fetch the HTML content and a parser to extract the relevant information.
  *
  * Example usage:
- * $httpClient = new GuzzleHttpClient();
+ * $httpClient = new DefaultHttpClient();
  * $parser = new ParseFighter();
  * $scraper = new FighterScraper($httpClient, $parser);
  * $fighterDTO = $scraper->scrapeById(123);

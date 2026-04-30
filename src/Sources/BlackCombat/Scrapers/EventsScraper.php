@@ -11,7 +11,7 @@ use Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers\ParseEvents;
  * It uses an HTTP client to fetch the HTML content and a parser to extract the relevant information.
  *
  * Example usage:
- * $httpClient = new GuzzleHttpClient();
+ * $httpClient = new DefaultHttpClient();
  * $parser = new ParseEvents();
  * $scraper = new EventsScraper($httpClient, $parser);
  * $events = $scraper->scrape('https://www.blackcombat.com/events');
