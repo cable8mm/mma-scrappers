@@ -4,7 +4,13 @@ A lightweight PHP library for scraping and parsing MMA data into simple DTOs.
 
 [![build & tests](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/run-tests.yml)
 [![coding style](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/code-style.yml)
-[![minimum PHP version](https://img.shields.io/badge/php-%5E8.4-8892BF?logo=php)](https://github.com/cable8mm/mma-scrapers)
+[![deploy-to-github-pages](https://github.com/cable8mm/mma-scrapers/actions/workflows/deploy-to-github-pages.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/deploy-to-github-pages.yml)
+[![update changelog](https://github.com/cable8mm/mma-scrapers/actions/workflows/update-changelog.yml/badge.svg)](https://github.com/cable8mm/mma-scrapers/actions/workflows/update-changelog.yml)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/cable8mm/mma-scrapers/php)
+![Packagist Version](https://img.shields.io/packagist/v/cable8mm/mma-scrapers)
+![Packagist Downloads](https://img.shields.io/packagist/dt/cable8mm/mma-scrapers)
+![Packagist Stars](https://img.shields.io/packagist/stars/cable8mm/mma-scrapers)
+![GitHub License](https://img.shields.io/github/license/cable8mm/mma-scrapers)
 
 ## Features
 
