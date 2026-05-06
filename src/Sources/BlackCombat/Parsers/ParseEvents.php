@@ -3,6 +3,7 @@
 namespace Cable8mm\MmaScrapers\Sources\BlackCombat\Parsers;
 
 use Cable8mm\MmaScrapers\DTO\EventDTO;
+use DateTime;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -42,8 +43,6 @@ class ParseEvents
             $date = str_replace('일', '', $date);
             $date = str_replace(' ', '', $date);
 
-            $date = new \DateTimeImmutable($date);
-
             $location = trim($lines->eq(2)->text());
 
             $url = $node->filter('button')->attr('onclick');
@@ -53,10 +52,10 @@ class ParseEvents
             $url = str_replace("';", '', $url);
 
             $events[] = new EventDTO(
-                $name,
-                $location,
-                $date,
-                $url
+                name: $name,
+                location: $location,
+                date: new DateTime($date),
+                url: $url
             );
         });
 
