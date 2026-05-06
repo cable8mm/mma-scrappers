@@ -1,5 +1,14 @@
 # Release Notes
 
+## v0.3.0 - 2026-05-06
+
+### What's Changed
+
+* Add `nameEn` to DTO by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/mma-scrapers/pull/24
+* Add github action badges by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/mma-scrapers/pull/25
+
+**Full Changelog**: https://github.com/cable8mm/mma-scrapers/compare/v0.2.1...v0.3.0
+
 ## v0.2.1 - 2026-04-30
 
 ### What's Changed
