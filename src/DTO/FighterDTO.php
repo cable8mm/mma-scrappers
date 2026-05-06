@@ -2,6 +2,8 @@
 
 namespace Cable8mm\MmaScrapers\DTO;
 
+use Transliterator;
+
 /**
  * Data Transfer Object representing a fighter.
  */
@@ -11,6 +13,7 @@ class FighterDTO
     * FighterDTO constructor.
     *
     * @param string $name The name of the fighter.
+    * @param string|null $nameEn The English name of the fighter, if available.
     * @param string|null $nickname The fighter's nickname, if available.
     * @param string|null $instagram The fighter's Instagram handle, if available.
     * @param string|null $teamname The name of the fighter's team or gym, if available.
@@ -22,6 +25,7 @@ class FighterDTO
     */
     public function __construct(
         public string $name,
+        public ?string $nameEn = null,
         public ?string $nickname = null,
         public ?string $instagram = null,
         public ?string $teamname = null,
@@ -31,5 +35,9 @@ class FighterDTO
         public ?int $draw = null,
         public ?int $sherdogId = null,
     ) {
+        if (empty($this->nameEn)) {
+            $transliterator = Transliterator::create('Any-Latin; Latin-ASCII');
+            $this->nameEn = $transliterator->transliterate($this->name);
+        }
     }
 }
