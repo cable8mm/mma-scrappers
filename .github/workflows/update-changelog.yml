@@ -1,4 +1,4 @@
-name: update changelog
+name: update-changelog
 
 on:
   release:
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Fetch entire history of repository to ensure relase date can be
           # extracted from commit of the given tag.
@@ -78,7 +78,7 @@ jobs:
           parse-github-usernames: true
 
       - name: Commit updated CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           # Push updated CHANGELOG to release target branch.
           branch: ${{ github.event.release.target_commitish }}
